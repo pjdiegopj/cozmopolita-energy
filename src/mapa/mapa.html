@@ -40,327 +40,7 @@
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
     <script>
-        const precos = {
-/*"Abaetetuba, PA": { "preco": 0.0, "lat": -1.7218, "lon": -48.8788 },
-"Açailândia, MA": { "preco": 0.0, "lat": -4.9469, "lon": -47.5050 },
-"Águas Lindas de Goiás, GO": { "preco": 0.0, "lat": -15.7617, "lon": -48.2817 },
-"Alagoinhas, BA": { "preco": 0.0, "lat": -12.1356, "lon": -38.4191 },
-"Almirante Tamandaré, PR": { "preco": 0.0, "lat": -25.3250, "lon": -49.3100 },
-"Altamira, PA": { "preco": 0.0, "lat": -3.2039, "lon": -52.2069 },
-"Alvorada, RS": { "preco": 0.0, "lat": -29.9914, "lon": -51.0809 },
-"Americana, SP": { "preco": 0.0, "lat": -22.7372, "lon": -47.3331 },
-"Ananindeua, PA": { "preco": 0.0, "lat": -1.3656, "lon": -48.3722 },
-"Anápolis, GO": { "preco": 0.0, "lat": -16.3287, "lon": -48.9534 },
-"Angra dos Reis, RJ": { "preco": 0.0, "lat": -23.0067, "lon": -44.3181 },
-"Aparecida de Goiânia, GO": { "preco": 0.0, "lat": -16.8198, "lon": -49.2469 },
-"Apucarana, PR": { "preco": 0.0, "lat": -23.5508, "lon": -51.4608 },*/
-"Aracaju, SE": { "preco": 0.755, "lat": -10.9472, "lon": -37.0731 },
-/*"Araçatuba, SP": { "preco": 0.0, "lat": -21.2089, "lon": -50.4328 },
-"Araguaína, TO": { "preco": 0.0, "lat": -7.1927, "lon": -48.2042 },
-"Araguari, MG": { "preco": 0.0, "lat": -18.6469, "lon": -48.1939 },
-"Arapiraca, AL": { "preco": 0.0, "lat": -9.7516, "lon": -36.6609 },
-"Arapongas, PR": { "preco": 0.0, "lat": -23.4192, "lon": -51.4242 },
-"Araraquara, SP": { "preco": 0.0, "lat": -21.7961, "lon": -48.1756 },
-"Araras, SP": { "preco": 0.0, "lat": -22.3569, "lon": -47.3839 },
-"Araruama, RJ": { "preco": 0.0, "lat": -22.8728, "lon": -42.3428 },
-"Araucária, PR": { "preco": 0.0, "lat": -25.5858, "lon": -49.4047 },
-"Araxá, MG": { "preco": 0.0, "lat": -19.5939, "lon": -46.9408 },
-"Assis, SP": { "preco": 0.0, "lat": -22.6619, "lon": -50.4119 },
-"Atibaia, SP": { "preco": 0.0, "lat": -23.1167, "lon": -46.5500 },
-"Bacabal, MA": { "preco": 0.0, "lat": -4.2250, "lon": -44.7800 },
-"Bagé, RS": { "preco": 0.0, "lat": -31.3319, "lon": -54.1069 },
-"Balneário Camboriú, SC": { "preco": 0.0, "lat": -26.9928, "lon": -48.6356 },
-"Balsas, MA": { "preco": 0.0, "lat": -7.5331, "lon": -46.0358 },
-"Barbacena, MG": { "preco": 0.0, "lat": -21.2258, "lon": -43.7739 },
-"Barcarena, PA": { "preco": 0.0, "lat": -1.5058, "lon": -48.6258 },
-"Barra Mansa, RJ": { "preco": 0.0, "lat": -22.5436, "lon": -44.1706 },
-"Barreiras, BA": { "preco": 0.0, "lat": -12.1439, "lon": -44.9968 },
-"Barretos, SP": { "preco": 0.0, "lat": -20.5569, "lon": -48.5678 },
-"Barueri, SP": { "preco": 0.0, "lat": -23.5107, "lon": -46.8761 },
-"Bauru, SP": { "preco": 0.0, "lat": -22.3145, "lon": -49.0607 },*/
-"Belém, PA": { "preco": 0.978, "lat": -1.4558, "lon": -48.4902 },
-/*"Belford Roxo, RJ": { "preco": 0.0, "lat": -22.7642, "lon": -43.3994 },*/
-"Belo Horizonte, MG": { "preco": 0.903, "lat": -19.9167, "lon": -43.9345 },
-/*"Bento Gonçalves, RS": { "preco": 0.0, "lat": -29.1714, "lon": -51.5192 },
-"Betim, MG": { "preco": 0.0, "lat": -19.9678, "lon": -44.1977 },
-"Birigui, SP": { "preco": 0.0, "lat": -21.2889, "lon": -50.3408 },
-"Blumenau, SC": { "preco": 0.0, "lat": -26.9157, "lon": -49.0709 },*/
-"Boa Vista, RR": { "preco": 0.789, "lat": 2.8238, "lon": -60.6758 },
-/*"Botucatu, SP": { "preco": 0.0, "lat": -22.8858, "lon": -48.4450 },
-"Bragança Paulista, SP": { "preco": 0.0, "lat": -22.9527, "lon": -46.5419 },
-"Bragança, PA": { "preco": 0.0, "lat": -1.0628, "lon": -46.7728 },*/
-"Brasília, DF": { "preco": 0.827, "lat": -15.7942, "lon": -47.8822 },
-/*"Breves, PA": { "preco": 0.0, "lat": -1.6819, "lon": -50.4800 },
-"Brusque, SC": { "preco": 0.0, "lat": -27.0977, "lon": -48.9128 },
-"Cabo de Santo Agostinho, PE": { "preco": 0.0, "lat": -8.2833, "lon": -35.0333 },
-"Cabo Frio, RJ": { "preco": 0.0, "lat": -22.8897, "lon": -42.0286 },
-"Cachoeirinha, RS": { "preco": 0.0, "lat": -29.9508, "lon": -51.0939 },
-"Cachoeiro de Itapemirim, ES": { "preco": 0.0, "lat": -20.8489, "lon": -41.1128 },
-"Camaçari, BA": { "preco": 0.0, "lat": -12.6996, "lon": -38.3242 },
-"Camaragibe, PE": { "preco": 0.0, "lat": -8.0236, "lon": -34.9781 },
-"Cambé, PR": { "preco": 0.0, "lat": -23.2758, "lon": -51.2781 },
-"Camboriú, SC": { "preco": 0.0, "lat": -27.0250, "lon": -48.6508 },
-"Cametá, PA": { "preco": 0.0, "lat": -2.2439, "lon": -49.4958 },
-"Campina Grande, PB": { "preco": 0.0, "lat": -7.2307, "lon": -35.8817 },
-"Campinas, SP": { "preco": 0.0, "lat": -22.9056, "lon": -47.0608 },*/
-"Campo Grande, MS": { "preco": 0.987, "lat": -20.4697, "lon": -54.6201 },
-/*"Campo Largo, PR": { "preco": 0.0, "lat": -25.4594, "lon": -49.5269 },
-"Campos dos Goytacazes, RJ": { "preco": 0.0, "lat": -21.7567, "lon": -41.3239 },
-"Canoas, RS": { "preco": 0.0, "lat": -29.9176, "lon": -51.1836 },
-"Caraguatatuba, SP": { "preco": 0.0, "lat": -23.6203, "lon": -45.4131 },
-"Carapicuíba, SP": { "preco": 0.0, "lat": -23.5235, "lon": -46.8407 },
-"Cariacica, ES": { "preco": 0.0, "lat": -20.2638, "lon": -40.4165 },
-"Caruaru, PE": { "preco": 0.0, "lat": -8.2845, "lon": -35.9709 },
-"Cascavel, PR": { "preco": 0.0, "lat": -24.9559, "lon": -53.4553 },
-"Castanhal, PA": { "preco": 0.0, "lat": -1.2970, "lon": -47.9167 },
-"Catalão, GO": { "preco": 0.0, "lat": -18.1700, "lon": -47.9419 },
-"Catanduva, SP": { "preco": 0.0, "lat": -21.1378, "lon": -48.9728 },
-"Caucaia, CE": { "preco": 0.0, "lat": -3.7327, "lon": -38.6616 },
-"Caxias do Sul, RS": { "preco": 0.0, "lat": -29.1629, "lon": -51.1768 },
-"Caxias, MA": { "preco": 0.0, "lat": -4.8580, "lon": -43.3560 },
-"Chapecó, SC": { "preco": 0.0, "lat": -27.1004, "lon": -52.6152 },
-"Codó, MA": { "preco": 0.0, "lat": -4.4550, "lon": -43.8858 },
-"Colatina, ES": { "preco": 0.0, "lat": -19.5389, "lon": -40.6308 },
-"Colombo, PR": { "preco": 0.0, "lat": -25.2925, "lon": -49.2262 },
-"Conselheiro Lafaiete, MG": { "preco": 0.0, "lat": -20.6603, "lon": -43.7861 },
-"Contagem, MG": { "preco": 0.0, "lat": -19.9317, "lon": -44.0536 },
-"Coronel Fabriciano, MG": { "preco": 0.0, "lat": -19.5189, "lon": -42.6289 },
-"Cotia, SP": { "preco": 0.0, "lat": -23.6022, "lon": -46.9192 },
-"Crato, CE": { "preco": 0.0, "lat": -7.2339, "lon": -39.4089 },
-"Criciúma, SC": { "preco": 0.0, "lat": -28.6775, "lon": -49.3697 },
-"Cubatão, SP": { "preco": 0.0, "lat": -23.8953, "lon": -46.4258 },*/
-"Cuiabá, MT": { "preco": 0.899, "lat": -15.6010, "lon": -56.0974 },
-"Curitiba, PR": { "preco": 1.373, "lat": -25.4296, "lon": -49.2719 },
-/*"Diadema, SP": { "preco": 0.0, "lat": -23.6815, "lon": -46.6205 },
-"Divinópolis, MG": { "preco": 0.0, "lat": -20.1441, "lon": -44.8907 },
-"Dourados, MS": { "preco": 0.0, "lat": -22.2208, "lon": -54.8058 },
-"Duque de Caxias, RJ": { "preco": 0.0, "lat": -22.7858, "lon": -43.3117 },
-"Embu das Artes, SP": { "preco": 0.0, "lat": -23.6437, "lon": -46.8579 },
-"Erechim, RS": { "preco": 0.0, "lat": -27.6339, "lon": -52.2739 },
-"Eunápolis, BA": { "preco": 0.0, "lat": -16.3778, "lon": -39.5800 },
-"Fazenda Rio Grande, PR": { "preco": 0.0, "lat": -25.6500, "lon": -49.3167 },
-"Feira de Santana, BA": { "preco": 0.0, "lat": -12.2668, "lon": -38.9660 },
-"Ferraz de Vasconcelos, SP": { "preco": 0.0, "lat": -23.5411, "lon": -46.3689 },*/
-"Florianópolis, SC": { "preco": 0.696, "lat": -27.5949, "lon": -48.5482 },
-/*"Formosa, GO": { "preco": 0.0, "lat": -15.5369, "lon": -47.3339 },*/
-"Fortaleza, CE": { "preco": 0.750, "lat": -3.7327, "lon": -38.5270 },
-/*"Foz do Iguaçu, PR": { "preco": 0.0, "lat": -25.5163, "lon": -54.5854 },
-"Franca, SP": { "preco": 0.0, "lat": -20.5356, "lon": -47.4008 },
-"Francisco Morato, SP": { "preco": 0.0, "lat": -23.2792, "lon": -46.7450 },
-"Franco da Rocha, SP": { "preco": 0.0, "lat": -23.3217, "lon": -46.7269 },
-"Garanhuns, PE": { "preco": 0.0, "lat": -8.8903, "lon": -36.4931 },*/
-"Goiânia, GO": { "preco": 1.698, "lat": -16.6869, "lon": -49.2648 },
-/*"Governador Valadares, MG": { "preco": 0.0, "lat": -18.8546, "lon": -41.9559 },
-"Gravataí, RS": { "preco": 0.0, "lat": -29.9436, "lon": -50.9920 },
-"Guarapari, ES": { "preco": 0.0, "lat": -20.6589, "lon": -40.5069 },
-"Guarapuava, PR": { "preco": 0.0, "lat": -25.3907, "lon": -51.4628 },
-"Guaratinguetá, SP": { "preco": 0.0, "lat": -22.8167, "lon": -45.2278 },
-"Guarujá, SP": { "preco": 0.0, "lat": -23.9931, "lon": -46.2564 },
-"Guarulhos, SP": { "preco": 0.0, "lat": -23.4539, "lon": -46.5333 },
-"Hortolândia, SP": { "preco": 0.0, "lat": -22.8583, "lon": -47.2200 },
-"Ibirité, MG": { "preco": 0.0, "lat": -20.0253, "lon": -44.0569 },
-"Igarassu, PE": { "preco": 0.0, "lat": -7.8339, "lon": -34.9058 },
-"Ilhéus, BA": { "preco": 0.0, "lat": -14.7930, "lon": -39.0460 },
-"Imperatriz, MA": { "preco": 0.0, "lat": -5.5185, "lon": -47.4777 },
-"Indaiatuba, SP": { "preco": 0.0, "lat": -23.0903, "lon": -47.2181 },
-"Ipatinga, MG": { "preco": 0.0, "lat": -19.4708, "lon": -42.5489 },
-"Itabaiana, SE": { "preco": 0.0, "lat": -10.6850, "lon": -37.4250 },
-"Itabira, MG": { "preco": 0.0, "lat": -19.6189, "lon": -43.2269 },
-"Itaboraí, RJ": { "preco": 0.0, "lat": -22.7475, "lon": -42.8578 },
-"Itabuna, BA": { "preco": 0.0, "lat": -14.7874, "lon": -39.2781 },
-"Itacoatiara, AM": { "preco": 0.0, "lat": -3.1431, "lon": -58.4442 },
-"Itaguaí, RJ": { "preco": 0.0, "lat": -22.8519, "lon": -43.7758 },
-"Itaituba, PA": { "preco": 0.0, "lat": -4.2761, "lon": -55.9839 },
-"Itajaí, SC": { "preco": 0.0, "lat": -26.9107, "lon": -48.6705 },
-"Itanhaém, SP": { "preco": 0.0, "lat": -24.1831, "lon": -46.7889 },
-"Itapecerica da Serra, SP": { "preco": 0.0, "lat": -23.7169, "lon": -46.8492 },
-"Itaperuna, RJ": { "preco": 0.0, "lat": -21.2050, "lon": -41.8878 },
-"Itapetininga, SP": { "preco": 0.0, "lat": -23.5886, "lon": -48.0483 },
-"Itapevi, SP": { "preco": 0.0, "lat": -23.5505, "lon": -46.9333 },
-"Itapipoca, CE": { "preco": 0.0, "lat": -3.4958, "lon": -39.5806 },
-"Itaquaquecetuba, SP": { "preco": 0.0, "lat": -23.4837, "lon": -46.3484 },
-"Itatiba, SP": { "preco": 0.0, "lat": -23.0058, "lon": -46.8389 },
-"Itu, SP": { "preco": 0.0, "lat": -23.2642, "lon": -47.2992 },
-"Ituiutaba, MG": { "preco": 0.0, "lat": -18.9728, "lon": -49.4628 },
-"Itumbiara, GO": { "preco": 0.0, "lat": -18.4189, "lon": -49.2150 },
-"Jaboatão dos Guararapes, PE": { "preco": 0.0, "lat": -8.1698, "lon": -35.0008 },
-"Jacareí, SP": { "preco": 0.0, "lat": -23.3051, "lon": -45.9658 },
-"Jandira, SP": { "preco": 0.0, "lat": -23.5278, "lon": -46.9028 },
-"Jaraguá do Sul, SC": { "preco": 0.0, "lat": -26.4853, "lon": -49.0666 },
-"Jataí, GO": { "preco": 0.0, "lat": -17.8850, "lon": -51.7219 },
-"Jaú, SP": { "preco": 0.0, "lat": -22.2964, "lon": -48.5578 },
-"Jequié, BA": { "preco": 0.0, "lat": -13.8575, "lon": -40.0836 },
-"Ji-Paraná, RO": { "preco": 0.0, "lat": -10.8853, "lon": -61.9517 },*/
-"João Pessoa, PB": { "preco": 0.676, "lat": -7.1195, "lon": -34.8450 },
-/*"Joinville, SC": { "preco": 0.0, "lat": -26.3039, "lon": -48.8457 },
-"Juazeiro do Norte, CE": { "preco": 0.0, "lat": -7.2129, "lon": -39.3152 },
-"Juazeiro, BA": { "preco": 0.0, "lat": -9.4116, "lon": -40.5026 },
-"Juiz de Fora, MG": { "preco": 0.0, "lat": -21.7645, "lon": -43.3502 },
-"Jundiaí, SP": { "preco": 0.0, "lat": -23.1861, "lon": -46.8844 },
-"Lagarto, SE": { "preco": 0.0, "lat": -10.9169, "lon": -37.6500 },
-"Lages, SC": { "preco": 0.0, "lat": -27.8159, "lon": -50.3260 },
-"Lauro de Freitas, BA": { "preco": 0.0, "lat": -12.8944, "lon": -38.3270 },
-"Lavras, MG": { "preco": 0.0, "lat": -21.2450, "lon": -44.9997 },
-"Limeira, SP": { "preco": 0.0, "lat": -22.5660, "lon": -47.3969 },
-"Linhares, ES": { "preco": 0.0, "lat": -19.3946, "lon": -40.0644 },
-"Londrina, PR": { "preco": 0.0, "lat": -23.3105, "lon": -51.1628 },
-"Luís Eduardo Magalhães, BA": { "preco": 0.0, "lat": -12.0958, "lon": -45.7958 },
-"Luziânia, GO": { "preco": 0.0, "lat": -16.2530, "lon": -47.9500 },
-"Macaé, RJ": { "preco": 0.0, "lat": -22.3849, "lon": -41.7832 },*/
-"Macapá, AP": { "preco": 0.825, "lat": 0.0349, "lon": -51.0694 },
-"Maceió, AL": { "preco": 0.851, "lat": -9.6656, "lon": -35.7350 },
-/*"Magé, RJ": { "preco": 0.0, "lat": -22.6632, "lon": -43.0407 },
-"Manacapuru, AM": { "preco": 0.0, "lat": -3.2997, "lon": -60.6206 },*/
-"Manaus, AM": { "preco": 0.876, "lat": -3.1190, "lon": -60.0217 },
-/*"Marabá, PA": { "preco": 0.0, "lat": -5.3689, "lon": -49.1388 },
-"Maracanaú, CE": { "preco": 0.0, "lat": -3.8778, "lon": -38.6249 },
-"Maranguape, CE": { "preco": 0.0, "lat": -3.8900, "lon": -38.6858 },
-"Maricá, RJ": { "preco": 0.0, "lat": -22.9354, "lon": -42.8246 },
-"Marília, SP": { "preco": 0.0, "lat": -22.2176, "lon": -49.9501 },
-"Maringá, PR": { "preco": 0.0, "lat": -23.4253, "lon": -51.9387 },
-"Marituba, PA": { "preco": 0.0, "lat": -1.3600, "lon": -48.3422 },
-"Mauá, SP": { "preco": 0.0, "lat": -23.6677, "lon": -46.4613 },
-"Mesquita, RJ": { "preco": 0.0, "lat": -22.7825, "lon": -43.4131 },
-"Mogi das Cruzes, SP": { "preco": 0.0, "lat": -23.5228, "lon": -46.1880 },
-"Mogi Guaçu, SP": { "preco": 0.0, "lat": -22.3714, "lon": -46.9425 },
-"Montes Claros, MG": { "preco": 0.0, "lat": -16.7282, "lon": -43.8638 },
-"Mossoró, RN": { "preco": 0.0, "lat": -5.1875, "lon": -37.3442 },
-"Muriaé, MG": { "preco": 0.0, "lat": -21.1308, "lon": -42.3658 },*/
-"Natal, RN": { "preco": 0.776, "lat": -5.7793, "lon": -35.2009 },
-/*"Nilópolis, RJ": { "preco": 0.0, "lat": -22.8056, "lon": -43.4139 },
-"Niterói, RJ": { "preco": 0.0, "lat": -22.8837, "lon": -43.1034 },
-"Nossa Senhora do Socorro, SE": { "preco": 0.0, "lat": -10.8553, "lon": -37.1261 },
-"Nova Friburgo, RJ": { "preco": 0.0, "lat": -22.2819, "lon": -42.5309 },
-"Nova Iguaçu, RJ": { "preco": 0.0, "lat": -22.7556, "lon": -43.4603 },
-"Nova Lima, MG": { "preco": 0.0, "lat": -19.9858, "lon": -43.8469 },
-"Nova Serrana, MG": { "preco": 0.0, "lat": -19.8753, "lon": -44.9847 },
-"Novo Gama, GO": { "preco": 0.0, "lat": -16.0589, "lon": -48.0419 },
-"Novo Hamburgo, RS": { "preco": 0.0, "lat": -29.6836, "lon": -51.1309 },
-"Olinda, PE": { "preco": 0.0, "lat": -8.0089, "lon": -34.8553 },
-"Osasco, SP": { "preco": 0.0, "lat": -23.5329, "lon": -46.7915 },
-"Ourinhos, SP": { "preco": 0.0, "lat": -22.9789, "lon": -49.8706 },
-"Paço do Lumiar, MA": { "preco": 0.0, "lat": -2.5311, "lon": -44.1078 },
-"Palhoça, SC": { "preco": 0.0, "lat": -27.6448, "lon": -48.6677 },*/
-"Palmas, TO": { "preco": 1.006, "lat": -10.2491, "lon": -48.3243 },
-/*"Paragominas, PA": { "preco": 0.0, "lat": -2.9669, "lon": -47.4858 },
-"Paranaguá, PR": { "preco": 0.0, "lat": -25.5167, "lon": -48.5250 },
-"Parauapebas, PA": { "preco": 0.0, "lat": -6.0675, "lon": -49.9025 },
-"Parnaíba, PI": { "preco": 0.0, "lat": -2.9050, "lon": -41.7758 },
-"Parnamirim, RN": { "preco": 0.0, "lat": -5.9156, "lon": -35.2629 },
-"Passo Fundo, RS": { "preco": 0.0, "lat": -28.2615, "lon": -52.4068 },
-"Passos, MG": { "preco": 0.0, "lat": -20.7189, "lon": -46.6100 },
-"Patos de Minas, MG": { "preco": 0.0, "lat": -18.5789, "lon": -46.5153 },
-"Patos, PB": { "preco": 0.0, "lat": -7.0244, "lon": -37.2800 },
-"Paulínia, SP": { "preco": 0.0, "lat": -22.7614, "lon": -47.1542 },
-"Paulista, PE": { "preco": 0.0, "lat": -7.9439, "lon": -34.8728 },
-"Paulo Afonso, BA": { "preco": 0.0, "lat": -9.4061, "lon": -38.2158 },
-"Pelotas, RS": { "preco": 0.0, "lat": -31.7649, "lon": -52.3371 },
-"Petrolina, PE": { "preco": 0.0, "lat": -9.3887, "lon": -40.5047 },
-"Petrópolis, RJ": { "preco": 0.0, "lat": -22.5050, "lon": -43.1789 },
-"Pindamonhangaba, SP": { "preco": 0.0, "lat": -22.9236, "lon": -45.4617 },
-"Pinhais, PR": { "preco": 0.0, "lat": -25.4447, "lon": -49.1925 },
-"Piracicaba, SP": { "preco": 0.0, "lat": -22.7253, "lon": -47.6493 },
-"Piraquara, PR": { "preco": 0.0, "lat": -25.4419, "lon": -49.0689 },
-"Planaltina, GO": { "preco": 0.0, "lat": -15.4528, "lon": -47.6142 },
-"Poá, SP": { "preco": 0.0, "lat": -23.5283, "lon": -46.3450 },
-"Poços de Caldas, MG": { "preco": 0.0, "lat": -21.7878, "lon": -46.5619 },
-"Ponta Grossa, PR": { "preco": 0.0, "lat": -25.0946, "lon": -50.1633 },*/
-"Porto Alegre, RS": { "preco": 0.822, "lat": -30.0346, "lon": -51.2177 },
-/*"Porto Seguro, BA": { "preco": 0.0, "lat": -16.4375, "lon": -39.0817 },*/
-"Porto Velho, RO": { "preco": 0.841, "lat": -8.7618, "lon": -63.9019 },
-/*"Pouso Alegre, MG": { "preco": 0.0, "lat": -22.2261, "lon": -45.9389 },
-"Praia Grande, SP": { "preco": 0.0, "lat": -24.0089, "lon": -46.4120 },
-"Presidente Prudente, SP": { "preco": 0.0, "lat": -22.1256, "lon": -51.3889 },
-"Queimados, RJ": { "preco": 0.0, "lat": -22.7161, "lon": -43.5553 },*/
-"Recife, PE": { "preco": 0.799, "lat": -8.0476, "lon": -34.8770 },
-/*"Resende, RJ": { "preco": 0.0, "lat": -22.4689, "lon": -44.4469 },
-"Ribeirão das Neves, MG": { "preco": 0.0, "lat": -19.7669, "lon": -44.0867 },
-"Ribeirão Pires, SP": { "preco": 0.0, "lat": -23.7108, "lon": -46.4128 },
-"Ribeirão Preto, SP": { "preco": 0.0, "lat": -21.1767, "lon": -47.8208 },*/
-"Rio Branco, AC": { "preco": 0.874, "lat": -9.9747, "lon": -67.8100 },
-/*"Rio Claro, SP": { "preco": 0.0, "lat": -22.4105, "lon": -47.5604 },
-"Rio das Ostras, RJ": { "preco": 0.0, "lat": -22.5264, "lon": -41.9450 },*/
-"Rio de Janeiro, RJ": { "preco": 1.061, "lat": -22.9068, "lon": -43.1729 },
-/*"Rio Grande, RS": { "preco": 0.0, "lat": -32.0349, "lon": -52.1071 },
-"Rio Verde, GO": { "preco": 0.0, "lat": -17.7926, "lon": -50.9192 },
-"Rondonópolis, MT": { "preco": 0.0, "lat": -16.4667, "lon": -54.6333 },
-"Sabará, MG": { "preco": 0.0, "lat": -19.8858, "lon": -43.8069 },
-"Salto, SP": { "preco": 0.0, "lat": -23.2006, "lon": -47.2869 },*/
-"Salvador, BA": { "preco": 0.878, "lat": -12.9714, "lon": -38.5014 },
-/*"Santa Bárbara d'Oeste, SP": { "preco": 0.0, "lat": -22.7539, "lon": -47.4139 },
-"Santa Cruz do Sul, RS": { "preco": 0.0, "lat": -29.7181, "lon": -52.4306 },
-"Santa Luzia, MG": { "preco": 0.0, "lat": -19.7699, "lon": -43.8515 },
-"Santa Maria, RS": { "preco": 0.0, "lat": -29.6842, "lon": -53.8069 },
-"Santa Rita, PB": { "preco": 0.0, "lat": -7.1175, "lon": -34.9775 },
-"Santana de Parnaíba, SP": { "preco": 0.0, "lat": -23.4439, "lon": -46.9178 },
-"Santana, AP": { "preco": 0.0, "lat": -0.0581, "lon": -51.1819 },
-"Santarém, PA": { "preco": 0.0, "lat": -2.4381, "lon": -54.6996 },
-"Santo André, SP": { "preco": 0.0, "lat": -23.6664, "lon": -46.5322 },
-"Santo Antônio de Jesus, BA": { "preco": 0.0, "lat": -12.9689, "lon": -39.2614 },
-"Santos, SP": { "preco": 0.0, "lat": -23.9608, "lon": -46.3336 },
-"São Bernardo do Campo, SP": { "preco": 0.0, "lat": -23.6919, "lon": -46.5645 },
-"São Caetano do Sul, SP": { "preco": 0.0, "lat": -23.6229, "lon": -46.5548 },
-"São Carlos, SP": { "preco": 0.0, "lat": -22.0175, "lon": -47.8910 },
-"São Gonçalo do Amarante, RN": { "preco": 0.0, "lat": -5.7908, "lon": -35.3289 },
-"São Gonçalo, RJ": { "preco": 0.0, "lat": -22.8269, "lon": -43.0539 },
-"São João de Meriti, RJ": { "preco": 0.0, "lat": -22.8059, "lon": -43.3729 },
-"São José de Ribamar, MA": { "preco": 0.0, "lat": -2.5619, "lon": -44.0539 },
-"São José do Rio Preto, SP": { "preco": 0.0, "lat": -20.8114, "lon": -49.3752 },
-"São José dos Campos, SP": { "preco": 0.0, "lat": -23.1791, "lon": -45.8872 },
-"São José dos Pinhais, PR": { "preco": 0.0, "lat": -25.5349, "lon": -49.2056 },
-"São José, SC": { "preco": 0.0, "lat": -27.6136, "lon": -48.6366 },
-"São Leopoldo, RS": { "preco": 0.0, "lat": -29.7601, "lon": -51.1472 },
-"São Lourenço da Mata, PE": { "preco": 0.0, "lat": -8.0022, "lon": -35.0183 },*/
-"São Luís, MA": { "preco": 0.843, "lat": -2.5387, "lon": -44.2823 },
-/*"São Mateus, ES": { "preco": 0.0, "lat": -18.7158, "lon": -39.8589 },*/
-"São Paulo, SP": { "preco": 0.789, "lat": -23.5505, "lon": -46.6333 },
-/*"São Pedro da Aldeia, RJ": { "preco": 0.0, "lat": -22.8389, "lon": -42.1028 },
-"São Vicente, SP": { "preco": 0.0, "lat": -23.9574, "lon": -46.3889 },
-"Sapucaia do Sul, RS": { "preco": 0.0, "lat": -29.8278, "lon": -51.1450 },
-"Sarandi, PR": { "preco": 0.0, "lat": -23.4439, "lon": -51.8758 },
-"Senador Canedo, GO": { "preco": 0.0, "lat": -16.7081, "lon": -49.0931 },
-"Serra, ES": { "preco": 0.0, "lat": -20.1289, "lon": -40.3078 },
-"Sertãozinho, SP": { "preco": 0.0, "lat": -21.1378, "lon": -47.9903 },
-"Sete Lagoas, MG": { "preco": 0.0, "lat": -19.4653, "lon": -44.2465 },
-"Simões Filho, BA": { "preco": 0.0, "lat": -12.7869, "lon": -38.4039 },
-"Sinop, MT": { "preco": 0.0, "lat": -11.8606, "lon": -55.5092 },
-"Sobral, CE": { "preco": 0.0, "lat": -3.6872, "lon": -40.3497 },
-"Sorocaba, SP": { "preco": 0.0, "lat": -23.5017, "lon": -47.4581 },
-"Sorriso, MT": { "preco": 0.0, "lat": -12.5428, "lon": -55.7219 },
-"Sumaré, SP": { "preco": 0.0, "lat": -22.8219, "lon": -47.2668 },
-"Suzano, SP": { "preco": 0.0, "lat": -23.5448, "lon": -46.3112 },
-"Taboão da Serra, SP": { "preco": 0.0, "lat": -23.6211, "lon": -46.7919 },
-"Tangará da Serra, MT": { "preco": 0.0, "lat": -14.6228, "lon": -57.4931 },
-"Tatuí, SP": { "preco": 0.0, "lat": -23.3558, "lon": -47.8569 },
-"Taubaté, SP": { "preco": 0.0, "lat": -23.0264, "lon": -45.5555 },
-"Teixeira de Freitas, BA": { "preco": 0.0, "lat": -17.5350, "lon": -39.7419 },
-"Teófilo Otoni, MG": { "preco": 0.0, "lat": -17.8575, "lon": -41.5050 },*/
-"Teresina, PI": { "preco": 0.947, "lat": -5.0949, "lon": -42.8042 },
-/*"Teresópolis, RJ": { "preco": 0.0, "lat": -22.4165, "lon": -42.9752 },
-"Timon, MA": { "preco": 0.0, "lat": -5.0949, "lon": -42.8370 },
-"Toledo, PR": { "preco": 0.0, "lat": -24.7139, "lon": -53.7428 },
-"Três Lagoas, MS": { "preco": 0.0, "lat": -20.7911, "lon": -51.7208 },
-"Trindade, GO": { "preco": 0.0, "lat": -16.6489, "lon": -49.4889 },
-"Tubarão, SC": { "preco": 0.0, "lat": -28.4669, "lon": -49.0069 },
-"Ubá, MG": { "preco": 0.0, "lat": -21.1200, "lon": -42.9428 },
-"Uberaba, MG": { "preco": 0.0, "lat": -19.7475, "lon": -47.9392 },
-"Uberlândia, MG": { "preco": 0.0, "lat": -18.9126, "lon": -48.2755 },
-"Umuarama, PR": { "preco": 0.0, "lat": -23.7658, "lon": -53.3200 },
-"Uruguaiana, RS": { "preco": 0.0, "lat": -29.7550, "lon": -57.0878 },
-"Valinhos, SP": { "preco": 0.0, "lat": -22.9708, "lon": -46.9958 },
-"Valparaíso de Goiás, GO": { "preco": 0.0, "lat": -16.0650, "lon": -47.9758 },
-"Varginha, MG": { "preco": 0.0, "lat": -21.5558, "lon": -45.4369 },
-"Várzea Grande, MT": { "preco": 0.0, "lat": -15.6459, "lon": -56.1322 },
-"Várzea Paulista, SP": { "preco": 0.0, "lat": -23.2114, "lon": -46.8283 },
-"Vespasiano, MG": { "preco": 0.0, "lat": -19.6919, "lon": -43.9233 },
-"Viamão, RS": { "preco": 0.0, "lat": -30.0839, "lon": -51.0228 },
-"Vila Velha, ES": { "preco": 0.0, "lat": -20.3297, "lon": -40.2925 },
-"Vitória da Conquista, BA": { "preco": 0.0, "lat": -14.8614, "lon": -40.8441 },
-"Vitória de Santo Antão, PE": { "preco": 0.0, "lat": -8.1189, "lon": -35.2914 },*/
-"Vitória, ES": { "preco": 0.789, "lat": -20.3194, "lon": -40.3378 },
-/*"Volta Redonda, RJ": { "preco": 0.0, "lat": -22.5231, "lon": -44.1042 },
-"Votorantim, SP": { "preco": 0.0, "lat": -23.5469, "lon": -47.4378 },*/
-        };
+        let precos = {};
 
         const map = L.map('map').setView([-14.2350, -51.9253], 4);
 
@@ -369,20 +49,6 @@
         }).addTo(map);
 
         const markers = {};
-
-        for (const [cidade, dados] of Object.entries(precos)) {
-            const { preco, lat, lon } = dados;
-            const consumoCarro = 60;
-            const custoCarregamento = (consumoCarro * preco).toFixed(2);
-
-            markers[cidade] = L.marker([lat, lon]).addTo(map)
-                .bindPopup(`
-                    <strong>${cidade}</strong><br>
-                    Preço: R$${preco.toFixed(2)}/kWh<br>
-                    Custo para carregar um carro: R$${custoCarregamento}
-                `);
-        }
-
         let initialZoomSet = false;
 
         const cityList = document.getElementById("city-list");
@@ -399,7 +65,6 @@
                     cidade.toLowerCase().includes(search.toLowerCase())
                 )
                 .forEach(cidade => {
-
                     const li = document.createElement("li");
                     li.textContent = cidade;
 
@@ -423,8 +88,6 @@
                 });
         }
 
-        renderCities();
-
         searchInput.addEventListener("input", (e) => {
             renderCities(e.target.value);
         });
@@ -437,6 +100,34 @@
         closeCityListBtn.addEventListener("click", () => {
             cityListContainer.classList.remove("active");
         });
+
+        // Carregar os preços a partir do arquivo JSON externo
+        fetch('./precos.json')
+            .then(response => response.json())
+            .then(data => {
+                // Filtra cidades com preços cadastrados (> 0)
+                for (const [cidade, dados] of Object.entries(data)) {
+                    if (dados.preco > 0) {
+                        precos[cidade] = dados;
+                    }
+                }
+
+                for (const [cidade, dados] of Object.entries(precos)) {
+                    const { preco, lat, lon } = dados;
+                    const consumoCarro = 60;
+                    const custoCarregamento = (consumoCarro * preco).toFixed(2);
+
+                    markers[cidade] = L.marker([lat, lon]).addTo(map)
+                        .bindPopup(`
+                            <strong>${cidade}</strong><br>
+                            Preço: R$${preco.toFixed(2)}/kWh<br>
+                            Custo para carregar um carro: R$${custoCarregamento}
+                        `);
+                }
+
+                renderCities();
+            })
+            .catch(error => console.error('Erro ao carregar dados de preços:', error));
     </script>
 
 </body>
