@@ -1,35 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <meta name="description" content="Perfil e links de Diego Jardim - Desenvolvedor Web">
+  <title>Diego Jardim | Desenvolvedor Web</title>
+  <link rel="icon" type="image/png" sizes="32x32" href="./src/images/favicon-32x32.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap">
   <link rel="stylesheet" href="./src/css/reset.css">
   <link rel="stylesheet" href="./src/css/style.css">
-  <title>Links Diego Jardim</title>
 </head>
-
 <body>
+  <!-- Botão de Voltar ao Projeto Principal -->
+  <header class="top-nav">
+    <a href="../../index.html" class="back-link" aria-label="Voltar para a página inicial do Energia Green">
+      <span class="arrow">&larr;</span> Voltar ao Energia Green
+    </a>
+  </header>
+
   <main class="card">
     <div class="card-image">
-      <img src="./src/images/perfil.png" alt="Perfil de Diego Jardim">
+      <img src="./src/images/perfil.png" alt="Foto de perfil de Diego Jardim" width="130" height="130">
       <a class="whatsapp-bubble" href="https://wa.me/5551995072308" target="_blank" rel="noopener noreferrer" aria-label="Enviar mensagem pelo WhatsApp">
         WhatsApp
       </a>
     </div>
-    <h1>Diego Jardim</h1>
-    <h2>Porto Alegre, Brazil</h2>
-    <h3>"Desenvolvedor web e ávido leitor."</h3>
 
-    <div class="buttons">
-      <button class="github"><a href="https://github.com/pjdiegopj" target="_blank">GitHub</a></button>
-      <button class="vercel"><a href="https://vercel.com/dgojdm" target="_blank">Vercel</a></button>
-      <button class="linkedin"><a href="https://linkedin.com/in/diego-pereira-jardim" target="_blank">LinkedIn</a></button>
-    </div>
+    <h1 class="card-name">Diego Jardim</h1>
+    <h2 class="card-location">Porto Alegre, Brasil</h2>
+    <p class="card-bio">"Desenvolvedor web e ávido leitor."</p>
+
+    <nav class="links-container" aria-label="Redes e Projetos de Diego Jardim">
+      <a class="social-link github" href="https://github.com/pjdiegopj" target="_blank" rel="noopener noreferrer">
+        GitHub
+      </a>
+      <a class="social-link vercel" href="https://vercel.com/dgojdm" target="_blank" rel="noopener noreferrer">
+        Vercel
+      </a>
+      <a class="social-link linkedin" href="https://linkedin.com/in/diego-pereira-jardim" target="_blank" rel="noopener noreferrer">
+        LinkedIn
+      </a>
+    </nav>
   </main>
-  <footer>
-  </footer>
 </body>
-
 </html>
