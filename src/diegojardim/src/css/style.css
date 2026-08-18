@@ -1,0 +1,131 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+body{
+    background: hsl(0, 0%, 8%);
+    display: flex;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center
+}
+
+.card img{
+    border-radius: 50%;
+    padding: 1rem;
+    height: 9rem;
+}
+
+.card{
+    position: relative;
+    border-radius: 3%;
+    background: hsl(0, 0%, 12%);
+    width: 412px;
+    height: 512px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.card-image{
+    position: relative;
+    display: inline-block;
+}
+
+.whatsapp-bubble{
+    position: absolute;
+    top: 0;
+    right: -14px;
+    transform: translate(50%, -20%);
+    background: #25d366;
+    color: #ffffff;
+    padding: 0.75rem 1rem;
+    border-radius: 1.75rem;
+    font-family: "Inter", sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-decoration: none;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.whatsapp-bubble::after{
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    left: 18px;
+    border-width: 8px 8px 0 8px;
+    border-style: solid;
+    border-color: #25d366 transparent transparent transparent;
+}
+
+.whatsapp-bubble:hover,
+.whatsapp-bubble:focus-visible{
+    background: #1ebe5d;
+    transform: translate(50%, -22%);
+}
+
+h1{
+    font-family: "Inter", sans-serif;
+    font-weight: 600;
+    color: hsl(0, 0%, 100%);
+    
+}
+
+h2{
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    color: hsl(75, 94%, 57%);
+}
+
+h3{
+    margin-top: 1.2rem;
+    font-family: "Inter", sans-serif;
+    font-weight: 400;
+    font-size:0.9rem;
+    color: hsl(0, 0%, 100%);
+    
+}
+
+
+.buttons{
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.github, .vercel, .linkedin, .email{
+    font-family: "Inter", sans-serif;
+    font-weight: 700;
+    background: hsl(0, 0%, 20%);
+    color: hsl(75, 94%, 57%);
+    border: none;
+    margin: 0.3rem;
+    border-radius: 10px;
+    width: 100%;
+    padding: 10px 130px;
+}
+
+.buttons a{
+    color: inherit;
+}
+
+.buttons button {
+    cursor: pointer;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.buttons button:hover,
+.buttons button:focus-visible,
+.buttons button:active {
+    background: hsl(75, 94%, 57%);
+    color: hsl(0, 0%, 8%);
+}
+
+.buttons a {
+    color: inherit;
+    text-decoration: none;
+    display: block;
+    width: 100%;
+}

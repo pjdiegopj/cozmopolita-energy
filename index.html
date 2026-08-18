@@ -1,328 +1,189 @@
 <!DOCTYPE html>
-
-<html class="light" lang="pt-BR"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Energia Green | Dados Energéticos</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            "colors": {
-                    "on-secondary-fixed": "#002020",
-                    "primary-fixed-dim": "#5DADE2",
-                    "on-tertiary": "#ffffff",
-                      "tertiary-fixed": "#5DADE2",
-                    "surface-tint": "#5DADE2",
-                    "surface-dim": "#dadada",
-                    "surface-bright": "#f9f9f9",
-                    "tertiary-fixed": "#5DADE2",
-                    "on-primary-fixed-variant": "#5DADE2",
-                    "on-tertiary-container": "#5DADE2",
-                    "on-secondary-fixed-variant": "#2d4c4c",
-                    "inverse-on-surface": "#f1f1f1",
-                    "on-background": "#1a1c1c",
-                    "tertiary": "#4d5950",
-                    "secondary-fixed": "#5DADE2",
-                    "on-primary-fixed": "#002204",
-                    "secondary-fixed-dim": "#5DADE2",
-                    "on-secondary-container": "#496868",
-                    "pure-white": "#FFFFFF",
-                    "surface-container": "#eeeeee",
-                    "on-tertiary-fixed": "#131e17",
-                    "text-main": "#1A3A3A",
-                    "surface-container-low": "#f3f3f3",
-                    "outline": "#707a6c",
-                    "on-error-container": "#93000a",
-                    "data-accent-blue": "#AAD3DF",
-                    "primary": "#5DADE2",
-                    "background": "#f9f9f9",
-                    "on-surface": "#1a1c1c",
-                    "secondary-container": "#5DADE2",
-                    "tertiary-fixed-dim": "#bdcabe",
-                    "secondary": "#446464",
-                    "primary-container": "#5DADE2",
-                    "surface-container-high": "#e8e8e8",
-                    "on-error": "#ffffff",
-                    "primary-fixed": "#5DADE2",
-                    "text-muted": "#5C7070",
-                    "on-secondary": "#ffffff",
-                    "surface-container-lowest": "#ffffff",
-                    "on-tertiary-fixed-variant": "#3e4a41",
-                    "inverse-surface": "#2f3131",
-                    "on-primary": "#ffffff",
-                    "on-primary-container": "#5DADE2",
-                    "error-container": "#ffdad6",
-                    "on-surface-variant": "#40493d",
-                    "surface-container-highest": "#e2e2e2",
-                    "surface-variant": "#e2e2e2",
-                    "error": "#ba1a1a",
-                    "inverse-primary": "#5DADE2",
-                    "outline-variant": "#bfcaba",
-                    "tertiary-container": "#5DADE2"
-            },
-            "borderRadius": {
-                    "DEFAULT": "0.25rem",
-                    "lg": "0.5rem",
-                    "xl": "0.75rem",
-                    "full": "9999px"
-            },
-            "spacing": {
-                    "gutter": "24px",
-                    "margin-desktop": "40px",
-                    "base": "8px",
-                    "margin-mobile": "16px",
-                    "container-max": "1200px",
-                    "section-gap": "80px"
-            },
-            "fontFamily": {
-                    "headline-sm": ["Inter"],
-                    "body-md": ["Inter"],
-                    "display-lg-mobile": ["Inter"],
-                    "headline-md": ["Inter"],
-                    "label-sm": ["Inter"],
-                    "body-lg": ["Inter"],
-                    "display-lg": ["Inter"],
-                    "label-md": ["Inter"]
-            },
-            "fontSize": {
-                    "headline-sm": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
-                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
-                    "display-lg-mobile": ["36px", {"lineHeight": "44px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
-                    "headline-md": ["32px", {"lineHeight": "40px", "letterSpacing": "-0.01em", "fontWeight": "600"}],
-                    "label-sm": ["12px", {"lineHeight": "16px", "fontWeight": "600"}],
-                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
-                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
-                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "500"}]
-            }
-          },
-        },
-      }
-    </script>
-<style>
-      .material-symbols-outlined {
-        font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
-        font-size: 24px;
-      }
-      .glass-card {
-        background: rgba(255, 255, 255, 0.8);
-        backdrop-filter: blur(8px);
-        border: 1px solid rgba(93, 173, 226, 0.5);
-      }
-      .reveal {
-        opacity: 0;
-        transform: translateY(20px);
-        transition: all 0.6s ease-out;
-      }
-      .reveal.active {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    </style>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Energia Green | Dados Energéticos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap">
+  <link rel="stylesheet" href="./src/css/styles.css">
 </head>
-<body class="bg-background text-on-surface font-body-md overflow-x-hidden selection:bg-primary-fixed selection:text-on-primary-fixed">
-<!-- Top Navigation Bar -->
-<header class="fixed top-0 w-full bg-pure-white/90 dark:bg-surface-container-lowest/90 border-b border-outline-variant/30 backdrop-blur-md z-50 shadow-sm dark:shadow-none">
-<div class="flex justify-between items-center h-20 px-gutter max-w-container-max mx-auto">
-<div class="flex items-center gap-3">
-<span class="font-headline-sm text-headline-sm font-bold text-primary dark:text-primary-fixed-dim">Energia Green</span>
-</div>
-<nav class="hidden md:flex items-center gap-8">
-<a class="text-primary dark:text-primary-fixed-dim border-b-2 border-primary pb-1 font-body-md text-body-md hover:text-primary transition-colors" href="#">Início</a>
-<a class="text-text-muted dark:text-on-surface-variant font-body-md text-body-md hover:text-primary transition-colors" href="#">Recursos</a>
-<a class="text-text-muted dark:text-on-surface-variant font-body-md text-body-md hover:text-primary transition-colors" href="#">Como Funciona</a>
-<a class="text-text-muted dark:text-on-surface-variant font-body-md text-body-md hover:text-primary transition-colors" href="#">Missão</a>
-</nav>
-<a class="bg-primary text-on-primary px-6 py-2.5 rounded-lg font-label-md text-label-md font-bold scale-95 active:opacity-80 transition-all" href="./src/mapa/mapa.html">Começar Agora</a>
-</div>
-</header>
-<!-- Hero Section -->
-<section class="relative pt-32 pb-20 md:pt-48 md:pb-section-gap flex items-center justify-center min-h-screen">
-<div class="absolute -top-10 -right-10 w-64 h-64 bg-primary/5 rounded-full blur-3xl -z-10"></div>
-<div class="absolute -bottom-10 -left-10 w-64 h-64 bg-secondary/5 rounded-full blur-3xl -z-10"></div>
-<div class="max-w-container-max mx-auto px-gutter flex flex-col justify-center items-center text-center">
-<div class="reveal active">
-<h1 class="font-display-lg text-display-lg-mobile md:text-display-lg text-text-main mb-6 leading-tight">
-                    Valores Atualizados de Energia Elétrica <span class="text-primary"><br>Explore o Mapa</br></span>
-</h1>
-<p class="font-body-lg text-body-lg text-text-muted mb-10 max-w-lg mx-auto">
-                    Descubra dados sobre cidades e tarifas em uma interface visual e intuitiva projetada para transformar complexidade em clareza.
-                </p>
-<div class="flex flex-col sm:flex-row gap-4 justify-center">
-<a class="inline-flex items-center justify-center bg-primary text-white px-10 py-4 rounded-lg font-headline-sm text-[18px] shadow-lg shadow-primary/20 hover:bg-primary-container transition-all" href="./src/mapa/mapa.html">
-                        Explorar o Mapa
-                        <span class="material-symbols-outlined ml-2">explore</span>
-</a>
-</div>
-</div>
-</div>
-</section>
-<!-- Resources Section (What you find) -->
-<section class="bg-surface-container-low py-section-gap">
-<div class="max-w-container-max mx-auto px-gutter">
-<div class="text-center mb-16 reveal">
-<h2 class="font-headline-md text-headline-md text-text-main mb-4">O que você encontra</h2>
-<p class="text-text-muted max-w-2xl mx-auto">Uma plataforma robusta que consolida os dados energéticos para apoiar sua tomada de decisão.</p>
-</div>
-<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-<!-- Card 1 -->
-<div class="glass-card p-8 rounded-xl reveal transition-all hover:-translate-y-2 hover:shadow-xl">
-<div class="w-12 h-12 bg-primary/10 text-primary flex items-center justify-center rounded-lg mb-6">
-<span class="material-symbols-outlined">location_city</span>
-</div>
-<h3 class="font-headline-sm text-[20px] text-text-main mb-3">Cidades</h3>
-<p class="text-text-muted text-body-md">Dados detalhados sobre o consumo e infraestrutura de milhares de cidades em todo o mundo.</p>
-</div>
-<!-- Card 2 -->
-<div class="glass-card p-8 rounded-xl reveal transition-all hover:-translate-y-2 hover:shadow-xl" style="transition-delay: 100ms;">
-<div class="w-12 h-12 bg-primary/10 text-primary flex items-center justify-center rounded-lg mb-6">
-<span class="material-symbols-outlined">factory</span>
-</div>
-<h3 class="font-headline-sm text-[20px] text-text-main mb-3">Estimativa</h3>
-<p class="text-text-muted text-body-md">Estimativa sobre o valor cobrado na cidade para carregar um carro elétrico.</p>
-</div>
-<!-- Card 3 -->
-<div class="glass-card p-8 rounded-xl reveal transition-all hover:-translate-y-2 hover:shadow-xl" style="transition-delay: 200ms;">
-<div class="w-12 h-12 bg-primary/10 text-primary flex items-center justify-center rounded-lg mb-6">
-<span class="material-symbols-outlined">request_quote</span>
-</div>
-<h3 class="font-headline-sm text-[20px] text-text-main mb-3">Tarifas de Energia</h3>
-<p class="text-text-muted text-body-md">Consulte os valores praticados e entenda a composição dos custos energéticos por localidade.</p>
-</div>
-<!-- Card 4 -->
-<div class="glass-card p-8 rounded-xl reveal transition-all hover:-translate-y-2 hover:shadow-xl" style="transition-delay: 300ms;">
-<div class="w-12 h-12 bg-primary/10 text-primary flex items-center justify-center rounded-lg mb-6">
-<span class="material-symbols-outlined">distance</span>
-</div>
-<h3 class="font-headline-sm text-[20px] text-text-main mb-3">Localização Geográfica</h3>
-<p class="text-text-muted text-body-md">Precisão espacial para identificar gargalos e oportunidades de eficiência energética regional.</p>
-</div>
-<!-- Card 5 -->
-<div class="glass-card p-8 rounded-xl reveal transition-all hover:-translate-y-2 hover:shadow-xl lg:col-span-2" style="transition-delay: 400ms;">
-<div class="flex flex-col md:flex-row gap-8 items-center">
-<div class="flex-1">
-<div class="w-12 h-12 bg-primary/10 text-primary flex items-center justify-center rounded-lg mb-6">
-<span class="material-symbols-outlined">map</span>
-</div>
-<h3 class="font-headline-sm text-[20px] text-text-main mb-3">Visualização em Mapa</h3>
-<p class="text-text-muted text-body-md">Interaja com camadas de dados sobrepostas diretamente no mapa para uma análise espacial dinâmica.</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- How it Works -->
-<section class="py-section-gap overflow-hidden">
-<div class="max-w-container-max mx-auto px-gutter">
-<div class="text-center mb-16 reveal">
-<h2 class="font-headline-md text-headline-md text-text-main mb-4">Como funciona</h2>
-<p class="text-text-muted max-w-2xl mx-auto">Três passos simples para você começar a extrair informação hoje mesmo.</p>
-</div>
-<div class="relative flex flex-col md:flex-row gap-12 md:gap-8 justify-between items-start">
-<!-- Connector Line (Desktop) -->
-<div class="hidden md:block absolute top-12 left-0 w-full h-0.5 bg-outline-variant/30 -z-10"></div>
-<!-- Step 1 -->
-<div class="flex-1 text-center reveal">
-<div class="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-md border-4 border-background">
-<span class="font-headline-sm text-[24px]">1</span>
-</div>
-<h4 class="font-headline-sm text-[18px] text-text-main mb-3">Acesse o mapa</h4>
-<p class="text-label-md text-text-muted">Clique no botão de exploração para carregar a interface interativa.</p>
-</div>
-<!-- Step 2 -->
-<div class="flex-1 text-center reveal" style="transition-delay: 150ms;">
-<div class="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-md border-4 border-background">
-<span class="font-headline-sm text-[24px]">2</span>
-</div>
-<h4 class="font-headline-sm text-[18px] text-text-main mb-3">Navegue pelas regiões</h4>
-<p class="text-label-md text-text-muted">Utilize filtros e ferramentas de busca para focar em cidades de interesse.</p>
-</div>
-<!-- Step 3 -->
-<div class="flex-1 text-center reveal" style="transition-delay: 300ms;">
-<div class="w-16 h-16 bg-primary text-white rounded-full flex items-center justify-center mx-auto mb-6 shadow-md border-4 border-background">
-<span class="font-headline-sm text-[24px]">3</span>
-</div>
-<h4 class="font-headline-sm text-[18px] text-text-main mb-3">Consulte informações</h4>
-<p class="text-label-md text-text-muted">Extraia dados de valores cobrados pela energia elétrica na cidade.</p>
-</div>
-</div>
-</div>
-</section>
-<!-- Highlight Quote -->
-<section class="px-gutter mb-section-gap">
-<div class="max-w-container-max mx-auto bg-primary-fixed text-on-primary-fixed p-12 md:p-20 rounded-3xl relative overflow-hidden reveal">
-<div class="absolute top-0 right-0 p-4 opacity-10">
-<span class="material-symbols-outlined text-[180px]">eco</span>
-</div>
-<div class="relative z-10 max-w-3xl">
-<blockquote class="font-headline-md text-headline-md md:text-[36px] leading-tight font-medium italic">
-                    "Transformando dados públicos em informação visual para facilitar a compreensão da distribuição de energia elétrica."
-                </blockquote>
-</div>
-</div>
-</section>
-<!-- CTA Final -->
-<section class="py-section-gap bg-surface-container-highest/20">
-<div class="max-w-container-max mx-auto px-gutter text-center reveal">
-<h2 class="font-display-lg text-display-lg-mobile md:text-display-lg text-text-main mb-8">Pronto para visualizar o futuro?</h2>
-<div class="flex justify-center">
-<a class="group flex items-center bg-primary text-white px-12 py-5 rounded-full font-headline-sm text-[20px] transition-all hover:scale-105 active:scale-95 shadow-xl shadow-primary/30" href="./src/mapa/mapa.html">
-                    Abrir o Mapa
-                    <span class="material-symbols-outlined ml-3 transition-transform group-hover:translate-x-1">arrow_forward</span>
-</a>
-</div>
-<p class="mt-8 text-text-muted text-label-md">Acesso gratuito a dados públicos consolidados.</p>
-</div>
-</section>
-<!-- Footer -->
-<footer class="bg-surface-container dark:bg-surface-container-high w-full py-margin-desktop mt-20">
-<div class="flex flex-col md:flex-row justify-between items-center gap-base px-gutter max-w-container-max mx-auto">
-<div class="flex items-center gap-4 mb-4 md:mb-0">
-<span class="font-headline-sm text-headline-sm font-bold text-on-surface dark:text-on-surface-variant">Energia Green</span>
-</div>
-<p class="font-label-md text-label-md text-on-surface-variant dark:text-surface-variant text-center md:text-left">
-                Energia Green © 2026. <span class="hidden sm:inline">Transformando dados em sustentabilidade.</span>
-</p>
-<div class="flex gap-6 mt-4 md:mt-0">
-<a class="text-on-surface-variant font-label-md text-label-md hover:underline decoration-primary transition-opacity" href="#">Privacidade</a>
-<a class="text-on-surface-variant font-label-md text-label-md hover:underline decoration-primary transition-opacity" href="#">Termos</a>
-<a class="text-on-surface-variant font-label-md text-label-md hover:underline decoration-primary transition-opacity" href="#">Contato</a>
-<a class="text-on-surface-variant font-label-md text-label-md hover:underline decoration-primary transition-opacity" href="#">Sustentabilidade</a>
-</div>
-</div>
-</footer>
-<script>
-      // Scroll reveal observer
-      const observerOptions = {
-        threshold: 0.1
-      };
+<body>
 
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('active');
-          }
-        });
-      }, observerOptions);
+  <!-- Cabeçalho de Navegação -->
+  <header class="header">
+    <div class="container header-container">
+      <a href="#" class="logo">Energia Green</a>
 
-      document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+      <nav class="nav">
+        <a href="#inicio" class="nav-link active">Início</a>
+        <a href="#recursos" class="nav-link">Recursos</a>
+        <a href="#como-funciona" class="nav-link">Como Funciona</a>
+        <a href="#missao" class="nav-link">Missão</a>
+      </nav>
 
-      // Light interactive effect for cards
-      document.querySelectorAll('.glass-card').forEach(card => {
-        card.addEventListener('mousemove', (e) => {
-          const rect = card.getBoundingClientRect();
-          const x = e.clientX - rect.left;
-          const y = e.clientY - rect.top;
-          card.style.setProperty('--mouse-x', `${x}px`);
-          card.style.setProperty('--mouse-y', `${y}px`);
-        });
-      });
-    </script>
-</body></html>
+      <a href="./src/mapa/mapa.html" class="btn btn-primary">Começar Agora</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Destaque Principal (Hero) -->
+    <section class="hero" id="inicio">
+      <div class="hero-bg-glow hero-bg-glow-right"></div>
+      <div class="hero-bg-glow hero-bg-glow-left"></div>
+
+      <div class="container hero-content reveal">
+        <h1 class="hero-title">
+          Valores Atualizados de Energia Elétrica
+          <span class="hero-highlight">Explore o Mapa</span>
+        </h1>
+        <p class="hero-subtitle">
+          Descubra dados sobre cidades e tarifas em uma interface visual e intuitiva projetada para transformar complexidade em clareza.
+        </p>
+        <div class="hero-actions">
+          <a href="./src/mapa/mapa.html" class="btn btn-hero">
+            Explorar o Mapa
+            <span class="material-symbols-outlined">explore</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção de Recursos -->
+    <section class="section section-features" id="recursos">
+      <div class="container">
+        <div class="section-header reveal">
+          <h2 class="section-title">O que você encontra</h2>
+          <p class="section-desc">Uma plataforma robusta que consolida os dados energéticos para apoiar sua tomada de decisão.</p>
+        </div>
+
+        <div class="features-grid">
+          <!-- Card 1: Cidades -->
+          <article class="feature-card reveal">
+            <div class="feature-icon">
+              <span class="material-symbols-outlined">location_city</span>
+            </div>
+            <h3 class="feature-title">Cidades</h3>
+            <p class="feature-desc">Dados detalhados sobre o consumo e infraestrutura de milhares de cidades em todo o mundo.</p>
+          </article>
+
+          <!-- Card 2: Estimativa -->
+          <article class="feature-card reveal">
+            <div class="feature-icon">
+              <span class="material-symbols-outlined">factory</span>
+            </div>
+            <h3 class="feature-title">Estimativa</h3>
+            <p class="feature-desc">Estimativa sobre o valor cobrado na cidade para carregar um carro elétrico.</p>
+          </article>
+
+          <!-- Card 3: Tarifas -->
+          <article class="feature-card reveal">
+            <div class="feature-icon">
+              <span class="material-symbols-outlined">request_quote</span>
+            </div>
+            <h3 class="feature-title">Tarifas de Energia</h3>
+            <p class="feature-desc">Consulte os valores praticados e entenda a composição dos custos energéticos por localidade.</p>
+          </article>
+
+          <!-- Card 4: Localização -->
+          <article class="feature-card reveal">
+            <div class="feature-icon">
+              <span class="material-symbols-outlined">distance</span>
+            </div>
+            <h3 class="feature-title">Localização Geográfica</h3>
+            <p class="feature-desc">Precisão espacial para identificar gargalos e oportunidades de eficiência energética regional.</p>
+          </article>
+
+          <!-- Card 5: Mapa Destaque -->
+          <article class="feature-card feature-card-wide reveal">
+            <div class="feature-icon">
+              <span class="material-symbols-outlined">map</span>
+            </div>
+            <h3 class="feature-title">Visualização em Mapa</h3>
+            <p class="feature-desc">Interaja com camadas de dados sobrepostas diretamente no mapa para uma análise espacial dinâmica.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção Como Funciona -->
+    <section class="section section-steps" id="como-funciona">
+      <div class="container">
+        <div class="section-header reveal">
+          <h2 class="section-title">Como funciona</h2>
+          <p class="section-desc">Três passos simples para você começar a extrair informação hoje mesmo.</p>
+        </div>
+
+        <div class="steps-grid">
+          <!-- Passo 1 -->
+          <article class="step-card reveal">
+            <div class="step-badge">1</div>
+            <h3 class="step-title">Acesse o mapa</h3>
+            <p class="step-desc">Clique no botão de exploração para carregar a interface interativa.</p>
+          </article>
+
+          <!-- Passo 2 -->
+          <article class="step-card reveal">
+            <div class="step-badge">2</div>
+            <h3 class="step-title">Navegue pelas regiões</h3>
+            <p class="step-desc">Utilize filtros e ferramentas de busca para focar em cidades de interesse.</p>
+          </article>
+
+          <!-- Passo 3 -->
+          <article class="step-card reveal">
+            <div class="step-badge">3</div>
+            <h3 class="step-title">Consulte informações</h3>
+            <p class="step-desc">Extraia dados de valores cobrados pela energia elétrica na cidade.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção Frase de Missão -->
+    <section class="section-quote" id="missao">
+      <div class="container">
+        <div class="quote-card reveal">
+          <span class="material-symbols-outlined quote-icon">eco</span>
+          <blockquote class="quote-text">
+            "Transformando dados públicos em informação visual para facilitar a compreensão da distribuição de energia elétrica."
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção Chamada para Ação Final -->
+    <section class="section section-cta">
+      <div class="container cta-container reveal">
+        <h2 class="cta-title">Pronto para visualizar o futuro?</h2>
+        <a href="./src/mapa/mapa.html" class="btn btn-cta">
+          Abrir o Mapa
+          <span class="material-symbols-outlined">arrow_forward</span>
+        </a>
+        <p class="cta-note">Acesso gratuito a dados públicos consolidados.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Rodapé -->
+  <footer class="footer">
+    <div class="container footer-container">
+      <div class="footer-brand">
+        <span class="logo">Energia Green</span>
+      </div>
+      <p class="footer-copy">
+        Energia Green &copy; 2026. <span>Transformando dados em sustentabilidade.</span>
+      </p>
+      <nav class="footer-nav">
+        <a href="#" class="footer-link">Privacidade</a>
+        <a href="#" class="footer-link">Termos</a>
+        <a href="#" class="footer-link">Contato</a>
+        <a href="#" class="footer-link">Sustentabilidade</a>
+      </nav>
+    </div>
+  </footer>
+
+  <script src="./src/js/index.js" defer></script>
+</body>
+</html>
