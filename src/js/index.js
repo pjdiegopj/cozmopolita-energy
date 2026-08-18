@@ -1,5 +1,5 @@
 /**
- * Energia Green - Interatividade e Animações
+ * Cozmopolita Energy - Interatividade e Animações
  */
 
 document.addEventListener('DOMContentLoaded', () => {

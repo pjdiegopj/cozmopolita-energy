@@ -7,10 +7,10 @@
   --card-bg: hsl(0, 0%, 12%);
   --card-border: rgba(255, 255, 255, 0.08);
   --text-primary: #ffffff;
-  --text-accent: hsl(75, 94%, 57%);
+  --text-accent: #5DADE2;
   --text-muted: #a0a0a0;
   --btn-bg: hsl(0, 0%, 20%);
-  --btn-bg-hover: hsl(75, 94%, 57%);
+  --btn-bg-hover: #5DADE2;
   --btn-text-hover: hsl(0, 0%, 8%);
   --whatsapp-green: #25d366;
   --whatsapp-hover: #1ebe5d;
