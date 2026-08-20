@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cozmopolita Energy | Dados Energéticos</title>
+  <title>Cozmopolita Energy | Dados de Energia</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
@@ -22,6 +22,8 @@
         <a href="#inicio" class="nav-link active">Início</a>
         <a href="#recursos" class="nav-link">Recursos</a>
         <a href="#como-funciona" class="nav-link">Como Funciona</a>
+        <a href="#dicionario" class="nav-link">Dicionário</a>
+        <a href="#tarifas-aviso" class="nav-link">Tarifas & Aviso</a>
         <a href="#missao" class="nav-link">Missão</a>
       </nav>
 
@@ -72,7 +74,7 @@
               <span class="material-symbols-outlined">location_city</span>
             </div>
             <h3 class="feature-title">Cidades</h3>
-            <p class="feature-desc">Dados detalhados sobre o consumo e infraestrutura de milhares de cidades em todo o mundo.</p>
+            <p class="feature-desc">Dados detalhados sobre o consumo e infraestrutura de milhares de cidades em todo o país.</p>
           </article>
 
           <!-- Card 2: Estimativa -->
@@ -147,6 +149,173 @@
       </div>
     </section>
 
+    <!-- Dicionário da Energia Elétrica -->
+    <section class="section section-dictionary" id="dicionario">
+      <div class="container">
+        <div class="section-header reveal">
+          <h2 class="section-title">Dicionário da Energia Elétrica</h2>
+          <p class="section-desc">Entenda cada informação apresentada nos popups do mapa.</p>
+        </div>
+
+        <div class="dictionary-grid">
+          <article class="dictionary-item reveal">
+            <span class="material-symbols-outlined dictionary-icon">location_on</span>
+            <div>
+              <h3 class="dictionary-term">Cidade</h3>
+              <p class="dictionary-definition">Localidade representada no mapa, com a coordenada usada para posicionar o marcador.</p>
+            </div>
+          </article>
+
+          <article class="dictionary-item reveal">
+            <span class="material-symbols-outlined dictionary-icon">payments</span>
+            <div>
+              <h3 class="dictionary-term">Valor da tarifa</h3>
+              <p class="dictionary-definition">Preço total estimado da energia residencial, em reais por quilowatt-hora (R$/kWh).</p>
+            </div>
+          </article>
+
+          <article class="dictionary-item reveal">
+            <span class="material-symbols-outlined dictionary-icon">bolt</span>
+            <div>
+              <h3 class="dictionary-term">Distribuidora</h3>
+              <p class="dictionary-definition">Empresa concessionária ou permissionária responsável pela distribuição de energia elétrica na área atendida.</p>
+            </div>
+          </article>
+
+          <article class="dictionary-item reveal">
+            <span class="material-symbols-outlined dictionary-icon">account_tree</span>
+            <div>
+              <h3 class="dictionary-term">Subgrupo</h3>
+              <p class="dictionary-definition">Classificação da unidade consumidora na estrutura tarifária. Os dados exibidos são do subgrupo B1.</p>
+            </div>
+          </article>
+
+          <article class="dictionary-item reveal">
+            <span class="material-symbols-outlined dictionary-icon">home</span>
+            <div>
+              <h3 class="dictionary-term">Classe</h3>
+              <p class="dictionary-definition">Categoria de consumo considerada no cálculo da tarifa. Neste mapa, é a classe Residencial.</p>
+            </div>
+          </article>
+
+          <article class="dictionary-item reveal">
+            <span class="material-symbols-outlined dictionary-icon">event</span>
+            <div>
+              <h3 class="dictionary-term">Vigência</h3>
+              <p class="dictionary-definition">Período em que a tarifa é válida, indicado pelas datas de início e fim da vigência.</p>
+            </div>
+          </article>
+
+          <article class="dictionary-item reveal">
+            <span class="material-symbols-outlined dictionary-icon">electric_car</span>
+            <div>
+              <h3 class="dictionary-term">Custo para carregar</h3>
+              <p class="dictionary-definition">Estimativa do valor para carregar um carro elétrico usando o consumo de referência do mapa.</p>
+            </div>
+          </article>
+
+          <article class="dictionary-item reveal">
+            <span class="material-symbols-outlined dictionary-icon">dataset</span>
+            <div>
+              <h3 class="dictionary-term">Fonte dos dados</h3>
+              <p class="dictionary-definition">Tarifas residenciais B1 obtidas nos Dados Abertos da ANEEL e atualizadas automaticamente.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Seção Disclaimer / Composição Tarifária -->
+    <section class="section section-disclaimer" id="tarifas-aviso">
+      <div class="container">
+        <div class="section-header reveal">
+          <h2 class="section-title">Composição Tarifária & Aviso Legal</h2>
+          <p class="section-desc">Entenda como é calculado o valor da tarifa e por que o total da sua fatura mensal recebida é diferente.</p>
+        </div>
+
+        <div class="disclaimer-grid">
+          <!-- Card: O que está no valor do mapa -->
+          <article class="disclaimer-card reveal">
+            <div class="disclaimer-card-header">
+              <div class="disclaimer-icon included">
+                <span class="material-symbols-outlined">check_circle</span>
+              </div>
+              <h3 class="disclaimer-card-title">O que está no valor apresentado</h3>
+            </div>
+            <p class="disclaimer-intro">
+              O valor exibido em <strong>R$/kWh</strong> representa a <strong>tarifa base de aplicação regulatória homologada pela ANEEL</strong> para a classe Residencial (subgrupo B1):
+            </p>
+            <ul class="disclaimer-list">
+              <li>
+                <span class="material-symbols-outlined list-icon">bolt</span>
+                <div>
+                  <strong>TE (Tarifa de Energia):</strong> Remunera o custo de geração e compra da energia elétrica propriamente dita.
+                </div>
+              </li>
+              <li>
+                <span class="material-symbols-outlined list-icon">electrical_services</span>
+                <div>
+                  <strong>TUSD (Tarifa de Uso do Sistema de Distribuição):</strong> Remunera os custos de transporte, linhas de transmissão, subestações, postes e a operação da rede da distribuidora.
+                </div>
+              </li>
+            </ul>
+          </article>
+
+          <!-- Card: O que NÃO está incluído -->
+          <article class="disclaimer-card reveal">
+            <div class="disclaimer-card-header">
+              <div class="disclaimer-icon excluded">
+                <span class="material-symbols-outlined">cancel</span>
+              </div>
+              <h3 class="disclaimer-card-title">O que NÃO está incluído no total</h3>
+            </div>
+            <p class="disclaimer-intro">
+              O valor do mapa <strong>não contempla</strong> tributos, encargos e cobranças variáveis que incidem na conta final:
+            </p>
+            <ul class="disclaimer-list">
+              <li>
+                <span class="material-symbols-outlined list-icon">account_balance</span>
+                <div>
+                  <strong>Impostos e Tributos:</strong> ICMS (imposto estadual com alíquota própria de cada UF), PIS/PASEP e COFINS (tributos federais).
+                </div>
+              </li>
+              <li>
+                <span class="material-symbols-outlined list-icon">lightbulb</span>
+                <div>
+                  <strong>Iluminação Pública (CIP / COSIP):</strong> Contribuição de competência municipal destinada ao custeio da iluminação pública.
+                </div>
+              </li>
+              <li>
+                <span class="material-symbols-outlined list-icon">flag</span>
+                <div>
+                  <strong>Bandeiras Tarifárias:</strong> Cobrança extra temporária (Amarela, Vermelha Patamar 1 ou 2) definida mensalmente pela ANEEL.
+                </div>
+              </li>
+              <li>
+                <span class="material-symbols-outlined list-icon">receipt_long</span>
+                <div>
+                  <strong>Serviços e Encargos Específicos:</strong> Multas, juros moratórios, parcelamentos, seguros ou serviços adicionais contratados.
+                </div>
+              </li>
+            </ul>
+          </article>
+        </div>
+
+        <!-- Banner de Disclaimer Principal -->
+        <div class="disclaimer-banner reveal">
+          <div class="disclaimer-banner-icon">
+            <span class="material-symbols-outlined">info</span>
+          </div>
+          <div class="disclaimer-banner-content">
+            <h4 class="disclaimer-banner-title">Aviso Importante sobre sua Conta de Luz</h4>
+            <p class="disclaimer-banner-text">
+              Os preços informados nesta ferramenta possuem <strong>finalidade estritamente informativa e comparativa de referência regulatória</strong>. Eles <strong>não correspondem ao valor final a pagar na sua conta de luz</strong>. O valor total cobrado pela distribuidora em sua fatura será acrescido dos impostos aplicáveis (ICMS, PIS, COFINS), da taxa municipal de iluminação pública e de eventuais adicionais de bandeiras tarifárias vigentes no período de medição.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Seção Frase de Missão -->
     <section class="section-quote" id="missao">
       <div class="container">
@@ -181,12 +350,6 @@
       <p class="footer-copy">
         Cozmopolita Energy &copy; 2026. <span>Transformando dados em sustentabilidade.</span>
       </p>
-      <nav class="footer-nav">
-        <a href="#" class="footer-link">Privacidade</a>
-        <a href="#" class="footer-link">Termos</a>
-        <a href="#" class="footer-link">Contato</a>
-        <a href="#" class="footer-link">Sustentabilidade</a>
-      </nav>
     </div>
   </footer>
 

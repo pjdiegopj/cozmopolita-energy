@@ -18,7 +18,7 @@
 
     <div class="watermark">
         <div class="logo-circle"></div>
-        Cozmopolita Energy | Para atualizar o preço e adicionar<br>cidades envie e-mail para dgojdm@gmail.com</br>
+        contato: cozmopolitaenergy@gmail.com<br>lightning: bronzeddrill943@walletofsatoshi.com</br>
     </div>
 
     <div class="city-list" id="city-list-container">
@@ -101,27 +101,239 @@
             cityListContainer.classList.remove("active");
         });
 
-        // Carregar os preços a partir do arquivo JSON externo
-        fetch('./precos.json')
-            .then(response => response.json())
-            .then(data => {
+        const distribuidorasPorCidade = {
+            // SP - Enel Distribuição São Paulo (ELETROPAULO)
+            'São Paulo, SP': 'ELETROPAULO',
+            'Barueri, SP': 'ELETROPAULO',
+            'Carapicuíba, SP': 'ELETROPAULO',
+            'Cotia, SP': 'ELETROPAULO',
+            'Diadema, SP': 'ELETROPAULO',
+            'Embu das Artes, SP': 'ELETROPAULO',
+            'Itapecerica da Serra, SP': 'ELETROPAULO',
+            'Itapevi, SP': 'ELETROPAULO',
+            'Jandira, SP': 'ELETROPAULO',
+            'Mauá, SP': 'ELETROPAULO',
+            'Osasco, SP': 'ELETROPAULO',
+            'Ribeirão Pires, SP': 'ELETROPAULO',
+            'Santana de Parnaíba, SP': 'ELETROPAULO',
+            'Santo André, SP': 'ELETROPAULO',
+            'São Bernardo do Campo, SP': 'ELETROPAULO',
+            'São Caetano do Sul, SP': 'ELETROPAULO',
+            'Taboão da Serra, SP': 'ELETROPAULO',
+
+            // SP - EDP São Paulo
+            'Caraguatatuba, SP': 'EDP SP',
+            'Ferraz de Vasconcelos, SP': 'EDP SP',
+            'Guaratinguetá, SP': 'EDP SP',
+            'Guarulhos, SP': 'EDP SP',
+            'Itaquaquecetuba, SP': 'EDP SP',
+            'Jacareí, SP': 'EDP SP',
+            'Mogi das Cruzes, SP': 'EDP SP',
+            'Pindamonhangaba, SP': 'EDP SP',
+            'Poá, SP': 'EDP SP',
+            'São José dos Campos, SP': 'EDP SP',
+            'Suzano, SP': 'EDP SP',
+            'Taubaté, SP': 'EDP SP',
+
+            // SP - Neoenergia Elektro
+            'Araras, SP': 'ELEKTRO',
+            'Assis, SP': 'ELEKTRO',
+            'Atibaia, SP': 'ELEKTRO',
+            'Bragança Paulista, SP': 'ELEKTRO',
+            'Francisco Morato, SP': 'ELEKTRO',
+            'Franco da Rocha, SP': 'ELEKTRO',
+            'Itapetininga, SP': 'ELEKTRO',
+            'Itatiba, SP': 'ELEKTRO',
+            'Limeira, SP': 'ELEKTRO',
+            'Mogi Guaçu, SP': 'ELEKTRO',
+            'Rio Claro, SP': 'ELEKTRO',
+            'Tatuí, SP': 'ELEKTRO',
+            'Várzea Paulista, SP': 'ELEKTRO',
+
+            // SP - CPFL Piratininga
+            'Cubatão, SP': 'CPFL-PIRATINING',
+            'Guarujá, SP': 'CPFL-PIRATINING',
+            'Itanhaém, SP': 'CPFL-PIRATINING',
+            'Itu, SP': 'CPFL-PIRATINING',
+            'Jundiaí, SP': 'CPFL-PIRATINING',
+            'Praia Grande, SP': 'CPFL-PIRATINING',
+            'Salto, SP': 'CPFL-PIRATINING',
+            'Santos, SP': 'CPFL-PIRATINING',
+            'São Vicente, SP': 'CPFL-PIRATINING',
+            'Sorocaba, SP': 'CPFL-PIRATINING',
+            'Votorantim, SP': 'CPFL-PIRATINING',
+
+            // SP - CPFL Paulista
+            'Americana, SP': 'CPFL-PAULISTA',
+            'Araçatuba, SP': 'CPFL-PAULISTA',
+            'Araraquara, SP': 'CPFL-PAULISTA',
+            'Barretos, SP': 'CPFL-PAULISTA',
+            'Bauru, SP': 'CPFL-PAULISTA',
+            'Birigui, SP': 'CPFL-PAULISTA',
+            'Botucatu, SP': 'CPFL-PAULISTA',
+            'Campinas, SP': 'CPFL-PAULISTA',
+            'Catanduva, SP': 'CPFL-PAULISTA',
+            'Franca, SP': 'CPFL-PAULISTA',
+            'Hortolândia, SP': 'CPFL-PAULISTA',
+            'Indaiatuba, SP': 'CPFL-PAULISTA',
+            'Jaú, SP': 'CPFL-PAULISTA',
+            'Marília, SP': 'CPFL-PAULISTA',
+            'Ourinhos, SP': 'CPFL-PAULISTA',
+            'Paulínia, SP': 'CPFL-PAULISTA',
+            'Piracicaba, SP': 'CPFL-PAULISTA',
+            'Presidente Prudente, SP': 'CPFL-PAULISTA',
+            'Ribeirão Preto, SP': 'CPFL-PAULISTA',
+            'Santa Bárbara d\'Oeste, SP': 'CPFL-PAULISTA',
+            'São Carlos, SP': 'CPFL-PAULISTA',
+            'São José do Rio Preto, SP': 'CPFL-PAULISTA',
+            'Sertãozinho, SP': 'CPFL-PAULISTA',
+            'Sumaré, SP': 'CPFL-PAULISTA',
+            'Valinhos, SP': 'CPFL-PAULISTA',
+
+            // RJ - Light
+            'Rio de Janeiro, RJ': 'LIGHT SESA',
+            'Barra Mansa, RJ': 'LIGHT SESA',
+            'Belford Roxo, RJ': 'LIGHT SESA',
+            'Duque de Caxias, RJ': 'LIGHT SESA',
+            'Itaguaí, RJ': 'LIGHT SESA',
+            'Mesquita, RJ': 'LIGHT SESA',
+            'Nilópolis, RJ': 'LIGHT SESA',
+            'Nova Iguaçu, RJ': 'LIGHT SESA',
+            'Queimados, RJ': 'LIGHT SESA',
+            'Resende, RJ': 'LIGHT SESA',
+            'São João de Meriti, RJ': 'LIGHT SESA',
+            'Volta Redonda, RJ': 'LIGHT SESA',
+
+            // RJ - Enel RJ
+            'Angra dos Reis, RJ': 'ENEL RJ',
+            'Araruama, RJ': 'ENEL RJ',
+            'Cabo Frio, RJ': 'ENEL RJ',
+            'Campos dos Goytacazes, RJ': 'ENEL RJ',
+            'Itaboraí, RJ': 'ENEL RJ',
+            'Itaperuna, RJ': 'ENEL RJ',
+            'Macaé, RJ': 'ENEL RJ',
+            'Magé, RJ': 'ENEL RJ',
+            'Maricá, RJ': 'ENEL RJ',
+            'Niterói, RJ': 'ENEL RJ',
+            'Nova Friburgo, RJ': 'ENEL RJ',
+            'Petrópolis, RJ': 'ENEL RJ',
+            'Rio das Ostras, RJ': 'ENEL RJ',
+            'São Gonçalo, RJ': 'ENEL RJ',
+            'São Pedro da Aldeia, RJ': 'ENEL RJ',
+            'Teresópolis, RJ': 'ENEL RJ',
+
+            // RS - CEEE Equatorial
+            'Porto Alegre, RS': 'CEEE-D',
+            'Alvorada, RS': 'CEEE-D',
+            'Bagé, RS': 'CEEE-D',
+            'Cachoeirinha, RS': 'CEEE-D',
+            'Canoas, RS': 'CEEE-D',
+            'Gravataí, RS': 'CEEE-D',
+            'Pelotas, RS': 'CEEE-D',
+            'Rio Grande, RS': 'CEEE-D',
+            'Viamão, RS': 'CEEE-D',
+
+            // RS - RGE
+            'Bento Gonçalves, RS': 'RGE',
+            'Caxias do Sul, RS': 'RGE',
+            'Erechim, RS': 'RGE',
+            'Novo Hamburgo, RS': 'RGE',
+            'Passo Fundo, RS': 'RGE',
+            'Santa Cruz do Sul, RS': 'RGE',
+            'Santa Maria, RS': 'RGE',
+            'São Leopoldo, RS': 'RGE',
+            'Sapucaia do Sul, RS': 'RGE',
+            'Uruguaiana, RS': 'RGE',
+
+            // MG - DMED
+            'Poços de Caldas, MG': 'DMED'
+        };
+
+        const distribuidorasPorEstado = {
+            AC: ['EAC'],
+            AL: ['EQUATORIAL AL'],
+            AP: ['CEA'],
+            AM: ['AMBAR AMAZONAS'],
+            BA: ['COELBA'],
+            CE: ['ENEL CE'],
+            DF: ['NEOENERGIA BRASILIA'],
+            ES: ['EDP ES'],
+            GO: ['EQUATORIAL GO'],
+            MA: ['EQUATORIAL MA'],
+            MT: ['EMT'],
+            MS: ['EMS'],
+            MG: ['CEMIG-D'],
+            PA: ['EQUATORIAL PA'],
+            PB: ['EPB'],
+            PR: ['COPEL-DIS'],
+            PE: ['NEOENERGIA PE'],
+            PI: ['EQUATORIAL PI'],
+            RJ: ['LIGHT SESA', 'ENEL RJ'],
+            RN: ['COSERN'],
+            RS: ['CEEE-D', 'RGE'],
+            RO: ['ERO'],
+            RR: ['AMBAR ENERGIA RR'],
+            SC: ['CELESC'],
+            SP: ['CPFL-PAULISTA', 'ELETROPAULO', 'EDP SP', 'ELEKTRO'],
+            SE: ['ESE'],
+            TO: ['ETO']
+        };
+
+        function normalizarTexto(texto) {
+            return (texto || '').normalize('NFD').replace(/[\u0300-\u036f]/g, '').toUpperCase();
+        }
+
+        function formatarData(data) {
+            if (!data) return 'Não informada';
+            const [ano, mes, dia] = data.split('-');
+            return `${dia}/${mes}/${ano}`;
+        }
+
+        // Carrega coordenadas e tarifas geradas no build.
+        Promise.all([
+            fetch('./precos.json').then(response => response.json()),
+            fetch('./dados-tarifas.json')
+                .then(response => response.ok ? response.json() : { tarifas: [] })
+                .catch(() => ({ tarifas: [] }))
+        ])
+            .then(([data, tarifasData]) => {
+                const tarifas = tarifasData.tarifas || [];
                 // Filtra cidades com preços cadastrados (> 0)
                 for (const [cidade, dados] of Object.entries(data)) {
-                    if (dados.preco > 0) {
-                        precos[cidade] = dados;
+                    const estado = cidade.split(', ').pop();
+                    const aliasEspecifico = distribuidorasPorCidade[cidade];
+                    const aliases = aliasEspecifico ? [aliasEspecifico] : (distribuidorasPorEstado[estado] || []);
+
+                    const tarifaAtualizada = tarifas.find(tarifa => {
+                        const nome = normalizarTexto(tarifa.distribuidora || tarifa.agente);
+                        return aliases.some(alias => nome.includes(normalizarTexto(alias)));
+                    });
+                    const precoAtualizado = tarifaAtualizada?.tarifaTotalRsPorKwh;
+                    const preco = precoAtualizado ?? dados.preco;
+                    if (preco > 0) {
+                        precos[cidade] = { ...dados, preco, tarifa: tarifaAtualizada };
                     }
                 }
 
                 for (const [cidade, dados] of Object.entries(precos)) {
                     const { preco, lat, lon } = dados;
+                    const tarifa = dados.tarifa;
                     const consumoCarro = 60;
                     const custoCarregamento = (consumoCarro * preco).toFixed(2);
+                    const detalhesTarifa = tarifa ? `
+                            <strong>Distribuidora:</strong> ${tarifa.distribuidora || tarifa.agente}<br>
+                            <strong>Subgrupo:</strong> ${tarifa.subGrupo}<br>
+                            <strong>Classe:</strong> ${tarifa.classe}<br>
+                            <strong>Início da vigência:</strong> ${formatarData(tarifa.inicioVigencia)}<br>
+                            <strong>Fim da vigência:</strong> ${formatarData(tarifa.fimVigencia)}<br>
+                        ` : '';
 
                     markers[cidade] = L.marker([lat, lon]).addTo(map)
                         .bindPopup(`
                             <strong>${cidade}</strong><br>
-                            Preço: R$${preco.toFixed(2)}/kWh<br>
-                            Custo para carregar um carro: R$${custoCarregamento}
+                            <strong>Valor da tarifa:</strong> R$${preco.toFixed(2)}/kWh<br>
+                            ${detalhesTarifa}
+                            <strong>Custo para carregar um carro elétrico:</strong> R$${custoCarregamento}
                         `);
                 }
 
