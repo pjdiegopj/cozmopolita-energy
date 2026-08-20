@@ -22,6 +22,7 @@
         <a href="#inicio" class="nav-link active">Início</a>
         <a href="#recursos" class="nav-link">Recursos</a>
         <a href="#como-funciona" class="nav-link">Como Funciona</a>
+        <a href="#dicionario" class="nav-link">Dicionário</a>
         <a href="#missao" class="nav-link">Missão</a>
       </nav>
 
@@ -142,6 +143,82 @@
             <div class="step-badge">3</div>
             <h3 class="step-title">Consulte informações</h3>
             <p class="step-desc">Extraia dados de valores cobrados pela energia elétrica na cidade.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dicionário da Energia Elétrica -->
+    <section class="section section-dictionary" id="dicionario">
+      <div class="container">
+        <div class="section-header reveal">
+          <h2 class="section-title">Dicionário da Energia Elétrica</h2>
+          <p class="section-desc">Entenda cada informação apresentada nos popups do mapa.</p>
+        </div>
+
+        <div class="dictionary-grid">
+          <article class="dictionary-item reveal">
+            <span class="material-symbols-outlined dictionary-icon">location_on</span>
+            <div>
+              <h3 class="dictionary-term">Cidade</h3>
+              <p class="dictionary-definition">Localidade representada no mapa, com a coordenada usada para posicionar o marcador.</p>
+            </div>
+          </article>
+
+          <article class="dictionary-item reveal">
+            <span class="material-symbols-outlined dictionary-icon">payments</span>
+            <div>
+              <h3 class="dictionary-term">Valor da tarifa</h3>
+              <p class="dictionary-definition">Preço total estimado da energia residencial, em reais por quilowatt-hora (R$/kWh).</p>
+            </div>
+          </article>
+
+          <article class="dictionary-item reveal">
+            <span class="material-symbols-outlined dictionary-icon">bolt</span>
+            <div>
+              <h3 class="dictionary-term">Distribuidora</h3>
+              <p class="dictionary-definition">Empresa responsável pela distribuição de energia na área atendida.</p>
+            </div>
+          </article>
+
+          <article class="dictionary-item reveal">
+            <span class="material-symbols-outlined dictionary-icon">account_tree</span>
+            <div>
+              <h3 class="dictionary-term">Subgrupo</h3>
+              <p class="dictionary-definition">Classificação da unidade consumidora na estrutura tarifária. Os dados exibidos são do subgrupo B1.</p>
+            </div>
+          </article>
+
+          <article class="dictionary-item reveal">
+            <span class="material-symbols-outlined dictionary-icon">home</span>
+            <div>
+              <h3 class="dictionary-term">Classe</h3>
+              <p class="dictionary-definition">Categoria de consumo considerada no cálculo da tarifa. Neste mapa, é a classe Residencial.</p>
+            </div>
+          </article>
+
+          <article class="dictionary-item reveal">
+            <span class="material-symbols-outlined dictionary-icon">event</span>
+            <div>
+              <h3 class="dictionary-term">Vigência</h3>
+              <p class="dictionary-definition">Período em que a tarifa é válida, indicado pelas datas de início e fim da vigência.</p>
+            </div>
+          </article>
+
+          <article class="dictionary-item reveal">
+            <span class="material-symbols-outlined dictionary-icon">electric_car</span>
+            <div>
+              <h3 class="dictionary-term">Custo para carregar</h3>
+              <p class="dictionary-definition">Estimativa do valor para carregar um carro elétrico usando o consumo de referência do mapa.</p>
+            </div>
+          </article>
+
+          <article class="dictionary-item reveal">
+            <span class="material-symbols-outlined dictionary-icon">dataset</span>
+            <div>
+              <h3 class="dictionary-term">Fonte dos dados</h3>
+              <p class="dictionary-definition">Tarifas residenciais B1 obtidas nos Dados Abertos da ANEEL e atualizadas automaticamente.</p>
+            </div>
           </article>
         </div>
       </div>
