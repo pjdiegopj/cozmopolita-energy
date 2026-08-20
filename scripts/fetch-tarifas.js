@@ -66,18 +66,18 @@ async function buscarTodosOsRegistros() {
 }
 
 function selecionarTarifas(registros) {
-  const maisRecentePorAgente = new Map();
+  const maisRecentePorChave = new Map();
 
   for (const registro of registros) {
-    const agente = registro.SigAgente;
-    if (!agente) continue;
+    const chave = registro.SigAgente;
+    if (!chave) continue;
 
-    const atual = maisRecentePorAgente.get(agente);
+    const atual = maisRecentePorChave.get(chave);
     const vigente = !registro.DatFimVigencia;
     const inicio = registro.DatInicioVigencia || "";
 
     if (!atual) {
-      maisRecentePorAgente.set(agente, registro);
+      maisRecentePorChave.set(chave, registro);
       continue;
     }
 
@@ -85,11 +85,11 @@ function selecionarTarifas(registros) {
     const atualInicio = atual.DatInicioVigencia || "";
     if ((vigente && !atualVigente) ||
         (vigente === atualVigente && inicio > atualInicio)) {
-      maisRecentePorAgente.set(agente, registro);
+      maisRecentePorChave.set(chave, registro);
     }
   }
 
-  return Array.from(maisRecentePorAgente.values())
+  return Array.from(maisRecentePorChave.values())
     .map((registro) => {
       // A ANEEL fornece os valores em R$/MWh; o mapa exibe R$/kWh.
       const teMwh = parseValor(registro.VlrTE);
@@ -97,7 +97,6 @@ function selecionarTarifas(registros) {
       const vlrTE = teMwh === null ? null : teMwh / 1000;
       const vlrTUSD = tusdMwh === null ? null : tusdMwh / 1000;
       return {
-        distribuidora: registro.SigAgente,
         subGrupo: registro.DscSubGrupo,
         classe: registro.DscClasse,
         modalidadeTarifaria: registro.DscModalidadeTarifaria,
@@ -111,7 +110,7 @@ function selecionarTarifas(registros) {
       };
     })
     .filter((tarifa) => tarifa.tarifaTotalRsPorKwh !== null)
-    .sort((a, b) => a.distribuidora.localeCompare(b.distribuidora));
+    .sort((a, b) => a.modalidadeTarifaria.localeCompare(b.modalidadeTarifaria));
 }
 
 async function main() {
@@ -125,13 +124,13 @@ async function main() {
   const saida = {
     fonte: "ANEEL - Dados Abertos",
     atualizadoEm: new Date().toISOString(),
-    quantidadeDistribuidoras: tarifas.length,
+    quantidadeTarifas: tarifas.length,
     tarifas
   };
 
   await fs.mkdir(path.dirname(OUTPUT_FILE), { recursive: true });
   await fs.writeFile(OUTPUT_FILE, JSON.stringify(saida, null, 2), "utf8");
-  console.log(`Tarifas atualizadas: ${tarifas.length} distribuidoras.`);
+  console.log(`Tarifas atualizadas: ${tarifas.length} registros.`);
 }
 
 main().catch((erro) => {

@@ -36,7 +36,7 @@ Para atualizar as tarifas da ANEEL localmente, use Node.js 18 ou superior e exec
 ## Observações
 
 - `mapa/precos.json` continua sendo a fonte das cidades e coordenadas.
-- As tarifas são atualizadas por distribuidora/UF a partir dos dados abertos da ANEEL; o valor anterior é usado como fallback se uma distribuidora não for encontrada.
+- As tarifas são atualizadas a partir dos dados abertos da ANEEL; o valor anterior é usado como fallback quando não há tarifa atualizada.
 
 ## Requisitos
 

@@ -18,7 +18,7 @@
 
     <div class="watermark">
         <div class="logo-circle"></div>
-        Cozmopolita Energy | Para atualizar o preço e adicionar<br>cidades envie e-mail para dgojdm@gmail.com</br>
+        contato: cozmopolitaenergy@gmail.com <br>lightning: bronzeddrill943@walletofsatoshi.com</br></div>
     </div>
 
     <div class="city-list" id="city-list-container">
@@ -101,16 +101,6 @@
             cityListContainer.classList.remove("active");
         });
 
-        const distribuidorasPorEstado = {
-            AC: ['EAC'], AL: ['EQUATORIAL AL'], AP: ['CEA'], AM: ['AMBAR AMAZONAS'],
-            BA: ['COELBA'], CE: ['ENEL CE'], DF: ['NEOENERGIA BRASILIA'], ES: ['EDP ES'],
-            GO: ['EQUATORIAL GO'], MA: ['EQUATORIAL MA'], MT: ['EMT'], MS: ['EMS'],
-            MG: ['CEMIG-D'], PA: ['EQUATORIAL PA'], PB: ['EPB'], PR: ['COPEL-DIS'], PE: ['NEOENERGIA PE'],
-            PI: ['EQUATORIAL PI'], RJ: ['LIGHT SESA', 'ENEL RJ'], RN: ['COSERN'], RS: ['CEEE-D', 'RGE'],
-            RO: ['ERO'], RR: ['AMBAR ENERGIA RR'], SC: ['CELESC'], SP: ['EDP SP', 'ELEKTRO', 'ELETROPAULO', 'CPFL'],
-            SE: ['SULGIPE', 'ESE'], TO: ['ETO']
-        };
-
         function normalizarTexto(texto) {
             return texto.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toUpperCase();
         }
@@ -130,14 +120,13 @@
         ])
             .then(([data, tarifasData]) => {
                 const tarifas = tarifasData.tarifas || [];
+                const tarifaAtualizada = tarifas.find(tarifa =>
+                    tarifa.subGrupo === 'B1' &&
+                    tarifa.classe === 'Residencial' &&
+                    tarifa.modalidadeTarifaria === 'Convencional'
+                );
                 // Filtra cidades com preços cadastrados (> 0)
                 for (const [cidade, dados] of Object.entries(data)) {
-                    const estado = cidade.split(', ').pop();
-                    const tarifaAtualizada = tarifas.find(tarifa => {
-                        const nome = normalizarTexto(tarifa.distribuidora);
-                        const aliases = distribuidorasPorEstado[estado] || [];
-                        return aliases.some(alias => nome.includes(normalizarTexto(alias)));
-                    });
                     const precoAtualizado = tarifaAtualizada?.tarifaTotalRsPorKwh;
                     const preco = precoAtualizado ?? dados.preco;
                     if (preco > 0) {
@@ -151,7 +140,7 @@
                     const consumoCarro = 60;
                     const custoCarregamento = (consumoCarro * preco).toFixed(2);
                     const detalhesTarifa = tarifa ? `
-                            <strong>Distribuidora:</strong> ${tarifa.distribuidora}<br>
+                            <strong>Modalidade tarifária:</strong> ${tarifa.modalidadeTarifaria}<br>
                             <strong>Subgrupo:</strong> ${tarifa.subGrupo}<br>
                             <strong>Classe:</strong> ${tarifa.classe}<br>
                             <strong>Início da vigência:</strong> ${formatarData(tarifa.inicioVigencia)}<br>
