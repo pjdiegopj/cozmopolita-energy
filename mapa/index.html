@@ -101,27 +101,69 @@
             cityListContainer.classList.remove("active");
         });
 
-        // Carregar os preços a partir do arquivo JSON externo
-        fetch('./precos.json')
-            .then(response => response.json())
-            .then(data => {
+        const distribuidorasPorEstado = {
+            AC: ['EAC'], AL: ['EQUATORIAL AL'], AP: ['CEA'], AM: ['AMBAR AMAZONAS'],
+            BA: ['COELBA'], CE: ['ENEL CE'], DF: ['NEOENERGIA BRASILIA'], ES: ['EDP ES'],
+            GO: ['EQUATORIAL GO'], MA: ['EQUATORIAL MA'], MT: ['EMT'], MS: ['EMS'],
+            MG: ['CEMIG-D'], PA: ['EQUATORIAL PA'], PB: ['EPB'], PR: ['COPEL-DIS'], PE: ['NEOENERGIA PE'],
+            PI: ['EQUATORIAL PI'], RJ: ['LIGHT SESA', 'ENEL RJ'], RN: ['COSERN'], RS: ['CEEE-D', 'RGE'],
+            RO: ['ERO'], RR: ['AMBAR ENERGIA RR'], SC: ['CELESC'], SP: ['EDP SP', 'ELEKTRO', 'ELETROPAULO', 'CPFL'],
+            SE: ['SULGIPE', 'ESE'], TO: ['ETO']
+        };
+
+        function normalizarTexto(texto) {
+            return texto.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toUpperCase();
+        }
+
+        function formatarData(data) {
+            if (!data) return 'Não informada';
+            const [ano, mes, dia] = data.split('-');
+            return `${dia}/${mes}/${ano}`;
+        }
+
+        // Carrega coordenadas e tarifas geradas no build.
+        Promise.all([
+            fetch('./precos.json').then(response => response.json()),
+            fetch('./dados-tarifas.json')
+                .then(response => response.ok ? response.json() : { tarifas: [] })
+                .catch(() => ({ tarifas: [] }))
+        ])
+            .then(([data, tarifasData]) => {
+                const tarifas = tarifasData.tarifas || [];
                 // Filtra cidades com preços cadastrados (> 0)
                 for (const [cidade, dados] of Object.entries(data)) {
-                    if (dados.preco > 0) {
-                        precos[cidade] = dados;
+                    const estado = cidade.split(', ').pop();
+                    const tarifaAtualizada = tarifas.find(tarifa => {
+                        const nome = normalizarTexto(tarifa.distribuidora);
+                        const aliases = distribuidorasPorEstado[estado] || [];
+                        return aliases.some(alias => nome.includes(normalizarTexto(alias)));
+                    });
+                    const precoAtualizado = tarifaAtualizada?.tarifaTotalRsPorKwh;
+                    const preco = precoAtualizado ?? dados.preco;
+                    if (preco > 0) {
+                        precos[cidade] = { ...dados, preco, tarifa: tarifaAtualizada };
                     }
                 }
 
                 for (const [cidade, dados] of Object.entries(precos)) {
                     const { preco, lat, lon } = dados;
+                    const tarifa = dados.tarifa;
                     const consumoCarro = 60;
                     const custoCarregamento = (consumoCarro * preco).toFixed(2);
+                    const detalhesTarifa = tarifa ? `
+                            <strong>Distribuidora:</strong> ${tarifa.distribuidora}<br>
+                            <strong>Subgrupo:</strong> ${tarifa.subGrupo}<br>
+                            <strong>Classe:</strong> ${tarifa.classe}<br>
+                            <strong>Início da vigência:</strong> ${formatarData(tarifa.inicioVigencia)}<br>
+                            <strong>Fim da vigência:</strong> ${formatarData(tarifa.fimVigencia)}<br>
+                        ` : '';
 
                     markers[cidade] = L.marker([lat, lon]).addTo(map)
                         .bindPopup(`
                             <strong>${cidade}</strong><br>
-                            Preço: R$${preco.toFixed(2)}/kWh<br>
-                            Custo para carregar um carro: R$${custoCarregamento}
+                            <strong>Valor da tarifa:</strong> R$${preco.toFixed(2)}/kWh<br>
+                            ${detalhesTarifa}
+                            <strong>Custo para carregar um carro elétrico:</strong> R$${custoCarregamento}
                         `);
                 }
 

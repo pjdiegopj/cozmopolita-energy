@@ -24,16 +24,19 @@ Projeto simples de visualização de preços de energia elétrica por cidade no 
 3. Clique em uma cidade para abrir o pop-up com o preço do kWh e o custo estimado.
 4. No celular, use o botão de busca para abrir/fechar o painel de cidades.
 
+Para atualizar as tarifas da ANEEL localmente, use Node.js 18 ou superior e execute `npm run build`. O Vercel executa esse mesmo comando durante o deploy e publica o arquivo atualizado automaticamente.
+
 ## Estrutura do projeto
 
 - `index.html` - marcação, dados das cidades e lógica do mapa
 - `style.css` - estilos da interface
+- `scripts/fetch-tarifas.js` - busca e consolida as tarifas residenciais B1 da ANEEL
+- `mapa/dados-tarifas.json` - dados gerados automaticamente no build
 
 ## Observações
 
-- Os preços são definidos diretamente no objeto `precos` dentro de `index.html`.
-- A maioria dos valores está atualmente em `R$ 0.00`; apenas alguns têm valores preenchidos.
-- Para atualizar preços ou adicionar cidades, envie e-mail para `dgojdm@gmail.com`.
+- `mapa/precos.json` continua sendo a fonte das cidades e coordenadas.
+- As tarifas são atualizadas por distribuidora/UF a partir dos dados abertos da ANEEL; o valor anterior é usado como fallback se uma distribuidora não for encontrada.
 
 ## Requisitos
 

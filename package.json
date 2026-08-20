@@ -1,0 +1,10 @@
+{
+  "name": "cozmopolita-energy",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/fetch-tarifas.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
