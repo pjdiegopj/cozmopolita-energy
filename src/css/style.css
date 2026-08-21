@@ -784,7 +784,7 @@ button {
 .top-nav {
   position: absolute;
   top: 20px;
-  left: 20px;
+  left: 50px;
   z-index: 1000;
 }
 
@@ -822,11 +822,6 @@ button {
 
 .back-link:hover .arrow {
   transform: translateX(-3px);
-}
-
-/* Ajuste dos controles de zoom do Leaflet para não sobrepor o botão voltar */
-.leaflet-top .leaflet-control-zoom {
-  margin-top: 65px;
 }
 
 .leaflet-popup-content {
@@ -1232,10 +1227,6 @@ button {
     left: 16px;
   }
 
-  .leaflet-top .leaflet-control-zoom {
-    margin-top: 60px;
-  }
-
   #toggle-city-list {
     display: flex;
   }
@@ -1283,19 +1274,14 @@ button {
 
 @media (max-width: 480px) {
   .top-nav {
-    top: 12px;
-    left: 10px;
+    top: 20px;
+    left: 50px;
   }
 
   .back-link {
     padding: 6px 12px;
     font-size: 0.82rem;
     gap: 6px;
-  }
-
-  .leaflet-top .leaflet-control-zoom {
-    margin-top: 54px;
-    margin-left: 10px;
   }
 
   .chat-box {
