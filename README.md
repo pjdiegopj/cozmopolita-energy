@@ -1,4 +1,4 @@
-# Energia Green
+# Cozmopolita Energy
 
 Projeto simples de visualização de preços de energia elétrica por cidade no Brasil usando Leaflet.
 
@@ -23,8 +23,6 @@ Projeto simples de visualização de preços de energia elétrica por cidade no 
 2. Use a lista de cidades para localizar um município no mapa.
 3. Clique em uma cidade para abrir o pop-up com o preço do kWh e o custo estimado.
 4. No celular, use o botão de busca para abrir/fechar o painel de cidades.
-
-Para atualizar as tarifas da ANEEL localmente, use Node.js 18 ou superior e execute `npm run build`. O Vercel executa esse mesmo comando durante o deploy e publica o arquivo atualizado automaticamente.
 
 ## Estrutura do projeto
 
