@@ -780,6 +780,55 @@ button {
   height: 100vh;
 }
 
+/* Barra superior com botão Voltar no Mapa */
+.top-nav {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-text);
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--color-border);
+  padding: 8px 16px;
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  box-shadow: var(--shadow-sm);
+  transition: all var(--transition-fast);
+}
+
+.back-link .arrow {
+  font-size: 1.1rem;
+  color: var(--color-primary);
+  transition: transform var(--transition-fast);
+}
+
+.back-link:hover {
+  color: var(--color-primary);
+  background: #ffffff;
+  border-color: var(--color-primary);
+  box-shadow: 0 4px 14px var(--color-primary-glow);
+  transform: translateY(-1px);
+}
+
+.back-link:hover .arrow {
+  transform: translateX(-3px);
+}
+
+/* Ajuste dos controles de zoom do Leaflet para não sobrepor o botão voltar */
+.leaflet-top .leaflet-control-zoom {
+  margin-top: 65px;
+}
+
 .leaflet-popup-content {
   text-align: center;
 }
@@ -1178,6 +1227,15 @@ button {
   }
 
   /* Controles do Mapa */
+  .top-nav {
+    top: 16px;
+    left: 16px;
+  }
+
+  .leaflet-top .leaflet-control-zoom {
+    margin-top: 60px;
+  }
+
   #toggle-city-list {
     display: flex;
   }
@@ -1224,6 +1282,22 @@ button {
 }
 
 @media (max-width: 480px) {
+  .top-nav {
+    top: 12px;
+    left: 10px;
+  }
+
+  .back-link {
+    padding: 6px 12px;
+    font-size: 0.82rem;
+    gap: 6px;
+  }
+
+  .leaflet-top .leaflet-control-zoom {
+    margin-top: 54px;
+    margin-left: 10px;
+  }
+
   .chat-box {
     position: fixed;
     bottom: 85px;
