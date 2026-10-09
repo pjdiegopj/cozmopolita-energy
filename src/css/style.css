@@ -297,6 +297,19 @@ button {
   padding-bottom: var(--section-gap);
   text-align: center;
   overflow: hidden;
+  background-image: linear-gradient(rgba(249, 249, 249, 0.24), rgba(249, 249, 249, 0.38)), url('../hero/hero.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-attachment: scroll;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.72) 0%, rgba(255, 255, 255, 0.45) 38%, rgba(255, 255, 255, 0.2) 100%);
+  z-index: 0;
 }
 
 .hero-bg-glow {
@@ -323,6 +336,8 @@ button {
 }
 
 .hero-content {
+  position: relative;
+  z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -332,23 +347,26 @@ button {
 .hero-title {
   font-size: clamp(2.2rem, 5vw, 3.5rem);
   font-weight: 800;
-  color: var(--color-text);
+  color: #173d4d;
   line-height: 1.15;
   margin-bottom: 24px;
   letter-spacing: -0.03em;
+  text-shadow: 0 2px 8px rgba(255, 255, 255, 0.45);
 }
 
 .hero-highlight {
   display: block;
-  color: var(--color-primary);
+  color: #0d6b93;
+  text-shadow: 0 2px 10px rgba(255, 255, 255, 0.45);
 }
 
 .hero-subtitle {
   font-size: 1.15rem;
-  color: var(--color-text-muted);
+  color: #244b5a;
   max-width: 580px;
   margin-bottom: 36px;
   line-height: 1.6;
+  text-shadow: 0 1px 6px rgba(255, 255, 255, 0.38);
 }
 
 .hero-actions {
