@@ -1241,6 +1241,10 @@ button {
    14. Responsividade (Breakpoints Globais)
    ========================================================================== */
 @media (max-width: 992px) {
+  .hero {
+    background-image: linear-gradient(rgba(249, 249, 249, 0.24), rgba(249, 249, 249, 0.38)), url('../hero/hero-mobile.png');
+  }
+
   .features-grid {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -1255,10 +1259,15 @@ button {
   }
 }
 
+
 @media (max-width: 768px) {
   :root {
     --header-height: 70px;
     --section-gap: 60px;
+  }
+
+  .hero {
+    background-image: linear-gradient(rgba(249, 249, 249, 0.24), rgba(249, 249, 249, 0.38)), url('../hero/hero-mobile.png');
   }
 
   .nav {
@@ -1381,6 +1390,10 @@ button {
 }
 
 @media (max-width: 480px) {
+  .hero {
+    background-image: linear-gradient(rgba(249, 249, 249, 0.24), rgba(249, 249, 249, 0.38)), url('../hero/hero-mobile.png');
+  }
+
   .top-nav {
     top: 20px;
     left: 50px;
