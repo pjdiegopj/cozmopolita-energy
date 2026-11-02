@@ -156,18 +156,20 @@ button {
 }
 
 .btn-hero {
-  background-color: var(--color-primary);
-  color: var(--color-text-light);
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #0d2337;
   font-size: 1.125rem;
   padding: 16px 36px;
   border-radius: var(--radius-md);
-  box-shadow: var(--shadow-lg);
+  box-shadow: none;
+  border: 1px solid rgba(13, 35, 55, 0.18);
 }
 
 .btn-hero:hover {
-  background-color: var(--color-primary-hover);
+  background-color: #ffffff;
+  color: #0d2337;
   transform: translateY(-2px);
-  box-shadow: 0 12px 28px var(--color-primary-glow);
+  box-shadow: none;
 }
 
 .btn-cta {
@@ -289,15 +291,15 @@ button {
 /* --- 6. Seção Hero (Destaque Principal) --- */
 .hero {
   position: relative;
-  min-height: 100vh;
+  min-height: 125vh;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
   padding-top: calc(var(--header-height) + 40px);
   padding-bottom: var(--section-gap);
   text-align: center;
   overflow: hidden;
-  background-image: linear-gradient(rgba(249, 249, 249, 0.24), rgba(249, 249, 249, 0.38)), url('../hero/hero.png');
+  background-image: url('../hero/hero.png');
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
@@ -305,34 +307,11 @@ button {
 }
 
 .hero::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.72) 0%, rgba(255, 255, 255, 0.45) 38%, rgba(255, 255, 255, 0.2) 100%);
-  z-index: 0;
+  content: none;
 }
 
 .hero-bg-glow {
-  position: absolute;
-  width: 320px;
-  height: 320px;
-  border-radius: var(--radius-full);
-  filter: blur(80px);
-  pointer-events: none;
-  z-index: -1;
-  opacity: 0.35;
-}
-
-.hero-bg-glow-right {
-  top: 10%;
-  right: -5%;
-  background-color: var(--color-primary);
-}
-
-.hero-bg-glow-left {
-  bottom: 10%;
-  left: -5%;
-  background-color: rgba(68, 100, 100, 0.4);
+  display: none;
 }
 
 .hero-content {
@@ -341,32 +320,34 @@ button {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
   max-width: 840px;
+  padding-top: 32px;
 }
 
 .hero-title {
   font-size: clamp(2.2rem, 5vw, 3.5rem);
   font-weight: 800;
-  color: #173d4d;
+  color: #dfe3e8;
   line-height: 1.15;
   margin-bottom: 24px;
   letter-spacing: -0.03em;
-  text-shadow: 0 2px 8px rgba(255, 255, 255, 0.45);
+  text-shadow: none;
 }
 
 .hero-highlight {
   display: block;
-  color: #0d6b93;
-  text-shadow: 0 2px 10px rgba(255, 255, 255, 0.45);
+  color: #edf1f4;
+  text-shadow: none;
 }
 
 .hero-subtitle {
   font-size: 1.15rem;
-  color: #244b5a;
+  color: #dfe3e8;
   max-width: 580px;
   margin-bottom: 36px;
   line-height: 1.6;
-  text-shadow: 0 1px 6px rgba(255, 255, 255, 0.38);
+  text-shadow: none;
 }
 
 .hero-actions {
@@ -1271,7 +1252,7 @@ button {
   }
 
   .hero {
-    background-image: linear-gradient(rgba(249, 249, 249, 0.24), rgba(249, 249, 249, 0.38)), url('../hero/hero-mobile.png');
+    background-image: url('../hero/hero-mobile.png');
   }
 
   .nav {
@@ -1395,7 +1376,7 @@ button {
 
 @media (max-width: 640px) {
   .hero {
-    background-image: linear-gradient(rgba(249, 249, 249, 0.24), rgba(249, 249, 249, 0.38)), url('../hero/hero-mobile.png');
+    background-image: url('../hero/hero-mobile.png');
   }
 
   .top-nav {
