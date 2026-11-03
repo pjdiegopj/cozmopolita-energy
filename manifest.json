@@ -1,0 +1,22 @@
+{
+  "name": "Cozmopolita Energy",
+  "short_name": "Cozmopolita Energy",
+  "description": "Consulte no mapa os preços residenciais do kWh por cidade no Brasil e estime o custo de uma recarga de 60 kWh para um carro elétrico.",
+  "lang": "pt-BR",
+  "dir": "ltr",
+  "scope": "/",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#0b1220",
+  "theme_color": "#5dade2",
+  "categories": ["utilities", "productivity"],
+  "icons": [
+    {
+      "src": "/src/logo/logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
