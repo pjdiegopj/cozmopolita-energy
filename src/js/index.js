@@ -3,7 +3,6 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Observador de Scroll para animação Reveal
   const observerOptions = {
     root: null,
     rootMargin: '0px',
@@ -14,7 +13,6 @@ document.addEventListener('DOMContentLoaded', () => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         entry.target.classList.add('active');
-        // Uma vez animado, não precisa observar novamente
         obs.unobserve(entry.target);
       }
     });
@@ -22,7 +20,55 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
-  // Botões de Copiar Chave (PIX / Lightning)
+  let deferredPrompt = null;
+
+  const installButton = document.createElement('button');
+  installButton.type = 'button';
+  installButton.textContent = 'Instalar app';
+  installButton.setAttribute('aria-label', 'Instalar app');
+  installButton.style.position = 'fixed';
+  installButton.style.right = '16px';
+  installButton.style.bottom = '16px';
+  installButton.style.zIndex = '9999';
+  installButton.style.display = 'none';
+  installButton.style.border = 'none';
+  installButton.style.borderRadius = '999px';
+  installButton.style.padding = '12px 18px';
+  installButton.style.background = '#5dade2';
+  installButton.style.color = '#06131b';
+  installButton.style.fontWeight = '700';
+  installButton.style.cursor = 'pointer';
+  installButton.style.boxShadow = '0 12px 24px rgba(0, 0, 0, 0.2)';
+  installButton.addEventListener('click', async () => {
+    if (!deferredPrompt) return;
+
+    deferredPrompt.prompt();
+    const choice = await deferredPrompt.userChoice;
+
+    if (choice.outcome === 'accepted') {
+      console.log('Usuário aceitou instalar o app');
+    }
+
+    deferredPrompt = null;
+    installButton.style.display = 'none';
+  });
+
+  document.body.appendChild(installButton);
+
+  window.addEventListener('beforeinstallprompt', (event) => {
+    event.preventDefault();
+    deferredPrompt = event;
+    installButton.style.display = 'block';
+  });
+
+  window.addEventListener('appinstalled', () => {
+    installButton.style.display = 'none';
+  });
+
+  if (window.matchMedia('(display-mode: standalone)').matches) {
+    installButton.style.display = 'none';
+  }
+
   const copyButtons = document.querySelectorAll('.btn-copy');
   copyButtons.forEach(btn => {
     btn.addEventListener('click', async () => {
@@ -33,7 +79,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (navigator.clipboard && window.isSecureContext) {
           await navigator.clipboard.writeText(textToCopy);
         } else {
-          // Fallback para contextos não-seguros ou navegadores legados
           const tempInput = document.createElement('textarea');
           tempInput.value = textToCopy;
           tempInput.style.position = 'fixed';

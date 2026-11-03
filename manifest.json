@@ -7,14 +7,15 @@
   "scope": "/",
   "start_url": "/",
   "display": "standalone",
-  "orientation": "any",
+  "display_override": ["standalone", "browser"],
+  "orientation": "portrait",
   "background_color": "#0b1220",
   "theme_color": "#5dade2",
   "categories": ["utilities", "productivity"],
   "icons": [
     {
       "src": "/src/logo/logo.svg",
-      "sizes": "any",
+      "sizes": "512x512",
       "type": "image/svg+xml",
       "purpose": "any maskable"
     }
