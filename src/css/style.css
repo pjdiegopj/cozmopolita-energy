@@ -335,11 +335,6 @@ button {
   text-shadow: none;
 }
 
-.hero-highlight {
-  display: block;
-  color: #edf1f4;
-  text-shadow: none;
-}
 
 .hero-subtitle {
   font-size: 1.15rem;
@@ -1223,7 +1218,7 @@ button {
    ========================================================================== */
 @media (max-width: 1024px) {
   .hero {
-    background-image: linear-gradient(rgba(249, 249, 249, 0.24), rgba(249, 249, 249, 0.38)), url('../hero/hero-mobile.png');
+    background-image: url('../hero/hero.png');
   }
 
   .nav {
@@ -1252,7 +1247,7 @@ button {
   }
 
   .hero {
-    background-image: url('../hero/hero-mobile.png');
+    background-image: url('../hero/hero.png');
   }
 
   .nav {
